@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: N00_000_00_FaceMouth_00_FACE (Instance)
+  m_Shader: {fileID: 4800000, guid: e0edbf68d81d1f340ae8b110086b7063, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _ALPHATEST_ON
+  - _MTOON_EMISSIVEMAP
+  - _MTOON_OUTLINE_WORLD
+  - _MTOON_PARAMETERMAP
+  - _MTOON_RIMMAP
+  - _NORMALMAP
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2450
+  stringTagMap:
+    RenderType: TransparentCutout
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 0b848e900b165e1469577367a38d47f8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 2800000, guid: 0d3afa0fde53a2940bc8cf6aa58f1195, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: a76b311ea6ab82143a50f8cbbf226d48, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MatcapTex:
+        m_Texture: {fileID: 2800000, guid: fb3db402d58ecbe4ba5d026ec39b9f6a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OutlineWidthTex:
+        m_Texture: {fileID: 2800000, guid: ea2b2418e13bf4a4da499a378b6fa4bb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RimTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadeTex:
+        m_Texture: {fileID: 2800000, guid: af06b85035ac21844a575f6a6dcaf730, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadingShiftTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UvAnimMaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaMode: 1
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DoubleSided: 1
+    - _GiEqualization: 0.9
+    - _M_AlphaToMask: 1
+    - _M_CullMode: 0
+    - _M_DebugMode: 0
+    - _M_DstBlend: 0
+    - _M_EditMode: 1
+    - _M_SrcBlend: 1
+    - _M_ZWrite: 1
+    - _OutlineLightingMix: 0
+    - _OutlineWidth: 0.0008
+    - _OutlineWidthMode: 1
+    - _RenderQueueOffset: 0
+    - _RimFresnelPower: 15.999935
+    - _RimLift: 0.1
+    - _RimLightingMix: 1
+    - _ShadingShiftFactor: 0.745626
+    - _ShadingShiftTexScale: 1
+    - _ShadingToonyFactor: 0.9081249
+    - _TransparentWithZWrite: 0
+    - _UvAnimRotationSpeed: 0
+    - _UvAnimScrollXSpeed: 0
+    - _UvAnimScrollYSpeed: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MatcapColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0.27450976, g: 0.09019602, b: 0.12549013, a: 1}
+    - _RimColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadeColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
