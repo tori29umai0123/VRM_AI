@@ -204,8 +204,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Enter text...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e275eaa4c556ffa4d82912532988a12c, type: 2}
-  m_sharedMaterial: {fileID: -7574597189544562640, guid: e275eaa4c556ffa4d82912532988a12c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8660efcbcf919d4459b14a2de8644812, type: 2}
+  m_sharedMaterial: {fileID: 7487426044209432416, guid: 8660efcbcf919d4459b14a2de8644812, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -419,8 +419,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e275eaa4c556ffa4d82912532988a12c, type: 2}
-  m_sharedMaterial: {fileID: -7574597189544562640, guid: e275eaa4c556ffa4d82912532988a12c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -579,8 +579,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e275eaa4c556ffa4d82912532988a12c, type: 2}
-  m_sharedMaterial: {fileID: -7574597189544562640, guid: e275eaa4c556ffa4d82912532988a12c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8660efcbcf919d4459b14a2de8644812, type: 2}
+  m_sharedMaterial: {fileID: 7487426044209432416, guid: 8660efcbcf919d4459b14a2de8644812, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -714,8 +714,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e275eaa4c556ffa4d82912532988a12c, type: 2}
-  m_sharedMaterial: {fileID: -7574597189544562640, guid: e275eaa4c556ffa4d82912532988a12c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8660efcbcf919d4459b14a2de8644812, type: 2}
+  m_sharedMaterial: {fileID: 7487426044209432416, guid: 8660efcbcf919d4459b14a2de8644812, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1074,7 +1074,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1915289385}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1307,8 +1307,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e275eaa4c556ffa4d82912532988a12c, type: 2}
-  m_sharedMaterial: {fileID: -7574597189544562640, guid: e275eaa4c556ffa4d82912532988a12c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8660efcbcf919d4459b14a2de8644812, type: 2}
+  m_sharedMaterial: {fileID: 7487426044209432416, guid: 8660efcbcf919d4459b14a2de8644812, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1398,9 +1398,10 @@ GameObject:
   - component: {fileID: 1559341527}
   - component: {fileID: 1559341528}
   - component: {fileID: 1559341529}
+  - component: {fileID: 1559341530}
   m_Layer: 0
   m_Name: Game_system
-  m_TagString: Untagged
+  m_TagString: Game_system
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1432,7 +1433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aef932410263a54ab1abd81632c7088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VRMpath: D:/Documents/3d/Rui/Rui.vrm
+  SystemSetting: {fileID: 1559341530}
+  VRMpath: 
   animCtrl: {fileID: 0}
   anime_ctl: {fileID: 9100000, guid: 66f1a0d256b3d7743bd031940dafb035, type: 2}
   uLipSyncSetup: {fileID: 1559341521}
@@ -1475,6 +1477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c648b938da74e33448c7d2eb837ea7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SystemSetting: {fileID: 1559341530}
+  MODE: 
   AI_thinking: {fileID: 1908081827}
   Voice_rec: {fileID: 1905019050}
   Text_input: {fileID: 1119022345}
@@ -1496,6 +1500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d11f4d3e0fadd4fb9dfea36b24e3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SystemSetting: {fileID: 1559341530}
+  URL: 
   UImanager: {fileID: 1559341523}
   logPath: C:/convogpt_API/Unity_scripts/log.json
 --- !u!82 &1559341527
@@ -1606,7 +1612,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f0ce606b5c59c4c94fa37ef7a9acb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SystemSetting: {fileID: 1559341530}
   UImanager: {fileID: 1559341523}
+  URL: 
   MicRecorder: {fileID: 1559341529}
   muteDuration: 1
   VolumeON: 0
@@ -1623,9 +1631,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295e34c582c95234098743c890a6cd33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: C:/convogpt_API/Unity_scripts/output/input.wav
+  SystemSetting: {fileID: 1559341530}
+  path: 
   Audio_Volume: 0
   m_AmpGain: 10
+--- !u!114 &1559341530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559341515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe6a18ebabca9bb4f960f3dc16b771fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VRMpath: 
+  InputMode: 
+  AI_URL: 
+  ChatGPT_log: 
+  whisper_URL: 
+  inVoice: 
+  VoiceApp: 
+  VOICEPEAK_exe: 
+  VOICEPEAK_out: 
+  VOICEPEAK_narrator: 
+  VoiceVox_narrator: 0
 --- !u!1 &1765409446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,7 +1789,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: e275eaa4c556ffa4d82912532988a12c, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 8660efcbcf919d4459b14a2de8644812, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1

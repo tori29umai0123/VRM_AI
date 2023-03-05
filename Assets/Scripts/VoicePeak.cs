@@ -8,11 +8,19 @@ using System.Collections;
 public class VoicePeak : MonoBehaviour
 {
     public string Message;
-    public string exepath = "C:/Program Files/VOICEPEAK/voicepeak.exe";
-    public string outpath = "C:/convogpt_API/output/output.wav";
-    public string narrator = "\"" + "Japanese Male 2" + "\"";
+    public string exepath;
+    public string outpath;
+    public string narrator;
     public Process exProcess;
 
+    public void Start()
+    {
+        GameObject Game_system = GameObject.FindGameObjectWithTag("Game_system");
+        SystemSetting SystemSetting = Game_system.GetComponent<SystemSetting>();
+        exepath = SystemSetting.VOICEPEAK_exe;
+        outpath = SystemSetting.VOICEPEAK_out;
+        narrator = SystemSetting.VOICEPEAK_narrator;
+    }
     public void VoicePeakStart()
     {
         var input_Message = EditorRunTerminal.Message;
@@ -27,7 +35,7 @@ public class VoicePeak : MonoBehaviour
         {
             exProcess = new Process();
             exProcess.StartInfo.FileName = exepath;
-            exProcess.StartInfo.Arguments = "-s " + Message + " -n " + narrator + " -o " + outpath;
+            exProcess.StartInfo.Arguments = "-s " + Message + " -n " + "\"" + narrator + "\"" + " -o " + outpath;
             exProcess.StartInfo.UseShellExecute = false;
 
             //é¿çs

@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UniVRM10;
+using System.Linq;
 
 public class Expression_Ctrl : MonoBehaviour
 {
@@ -40,6 +41,12 @@ public class Expression_Ctrl : MonoBehaviour
             emote_Weight = 0;
             Emocon();
             Countdown();
+        }
+        string[] emolist = new string[] { "Happy", "Angry", "Sad", "Relaxed", "Surprised" };
+
+        if (!emolist.Contains(Emote))
+        {
+            Emo.text = null;
         }
     }
 

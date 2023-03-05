@@ -1,13 +1,16 @@
 using UnityEngine;
 
-using System.Collections;
-using UnityEngine.Networking;
-
 public class CallVoice : MonoBehaviour
 {
-    public string VoiceApp = "VoiceVox";
+    public string VoiceApp;
     public static float emote_time;
-
+  
+    public void Start()
+    {
+        GameObject Game_system = GameObject.FindGameObjectWithTag("Game_system");
+        SystemSetting SystemSetting = Game_system.GetComponent<SystemSetting>();
+        VoiceApp = SystemSetting.VoiceApp;
+    }
     public void Speak()
     {
         if (VoiceApp == "VoiceVox")

@@ -1,18 +1,23 @@
 using UnityEngine;
-using TMPro;
 using UnityEngine.Networking;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 
 public class EditorRunTerminal : MonoBehaviour
 {
-    private const string URL = "http://127.0.0.1:5000/";
+    public SystemSetting SystemSetting;
+    public string URL;
     public static string Message;
     public static string Emo;
     public static float Emo_Weight;
     public UImanager UImanager;
-    public string logPath = "C:/convogpt_API/Unity_scripts/log.json";
+    public string logPath;
+
+    public void Start()
+    {
+        URL = SystemSetting.AI_URL;
+        logPath = SystemSetting.ChatGPT_log;
+    }
 
     public void RunTerminal()
     {
@@ -27,11 +32,10 @@ public class EditorRunTerminal : MonoBehaviour
         {
             form.AddField("inputtext", UImanager.inputField.text);
         }
-        if (UImanager.MODE == "Voice")
+        if (UImanager.MODE == "voice")
         {
             form.AddField("inputtext", UImanager.recognizeText.text);
         }
-
         if (UImanager.MODE == "script")
         {
                 form.AddField("inputtext", "script_input");
@@ -43,9 +47,18 @@ public class EditorRunTerminal : MonoBehaviour
         UnityEngine.Debug.Log(webRequest.downloadHandler.text);
         var responce = webRequest.downloadHandler.text;
         string[] res = responce.Split(',');
-        Emo = res[0];
-        Emo_Weight = float.Parse(res[1]);
-        Message = res[2];
+        if (res.Length == 3)
+        {
+            Emo = res[0];
+            Emo_Weight = float.Parse(res[1]);
+            Message = res[2];
+        }
+        else
+        {
+            Emo = null;
+            Emo_Weight = 0;
+            Message = responce;
+        }
         LoadModel.CallVoice.Speak();
         UImanager.inputField.text = "";
         UImanager.recognizeText.text = "";

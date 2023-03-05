@@ -2,14 +2,16 @@ using UnityEngine;
 using UniVRM10;
 public class LoadModel : MonoBehaviour
 {
-    public string VRMpath = "D:/Documents/3d/Rui/Rui.vrm";
+    public SystemSetting SystemSetting;
+    public string VRMpath;
     public Animator animCtrl;
     public RuntimeAnimatorController anime_ctl;
     public static CallVoice CallVoice;
     public uLipSyncSetup uLipSyncSetup;
 
-    public void Awake()
+    public void Start()
     {
+        VRMpath = SystemSetting.VRMpath;
         Load();
     }
     public async void Load()

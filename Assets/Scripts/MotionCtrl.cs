@@ -9,8 +9,6 @@ public class MotionCtrl : MonoBehaviour
     public int motion;
     public Animator animCtrl;
 
-
-
     public void Start()
     {
         animCtrl = this.gameObject.GetComponent<Animator>();

@@ -12,6 +12,7 @@ namespace NekomimiDaimao
 {
     public class MicRecorder : MonoBehaviour
     {
+        public SystemSetting SystemSetting;
         private const int Frequency = 44100;
         private const int MaxLengthSec = 600;
 
@@ -21,12 +22,18 @@ namespace NekomimiDaimao
         private FileStream _fileStream;
         private AudioClip _audioClip;
         private string _micName = null;
-        public string path = "C:/convogpt_API/Unity_scripts/output/input.wav";
+        public string path;
 
         private int m_LastAudioPos;
         private float m_AudioLevel;
         public float Audio_Volume;
         [SerializeField, Range(10, 100)] private float m_AmpGain = 10;
+
+
+        public void Start()
+        {
+            path = SystemSetting.inVoice;
+        }
 
         void Update()
         {

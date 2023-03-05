@@ -4,11 +4,12 @@ using TMPro;
 
 public class UImanager : MonoBehaviour
 {
+    public SystemSetting SystemSetting;
     public static bool thinking = false;
     public static bool recording = false;
     public static bool talking = false;
     public static bool listening = false;
-    public static string MODE = "text";
+    public  string MODE = "text";
     public Image AI_thinking;
     public Image Voice_rec;
     public GameObject Text_input;
@@ -18,6 +19,10 @@ public class UImanager : MonoBehaviour
     public TextMeshProUGUI Voice_responce;
     public GameObject Voice_send;
     public GameObject background;
+    public void Start()
+    {
+        MODE = SystemSetting.InputMode;
+    }
 
     public void Update()
     {
@@ -36,7 +41,7 @@ public class UImanager : MonoBehaviour
             Voice_input.SetActive(false);
             Text_input.SetActive(true);
         }
-        else if (!thinking & MODE == "Voice")
+        else if (!thinking & MODE == "voice")
         {
             Voice_input.SetActive(true);
             Text_input.SetActive(false);

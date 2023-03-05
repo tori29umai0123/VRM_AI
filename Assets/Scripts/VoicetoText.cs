@@ -5,13 +5,18 @@ using NekomimiDaimao;
 
 public class VoicetoText : MonoBehaviour
 {
+    public SystemSetting SystemSetting;
     public UImanager UImanager;
-    public const string URL = "http://127.0.0.1:5001/";
+    public string URL;
     public MicRecorder MicRecorder;
     public float muteDuration = 1f;
     public bool VolumeON = false;
     public bool first_voice = false;
 
+    public void Start()
+    {
+        URL = SystemSetting.whisper_URL;
+    }
     public void ClickRec()
     {
         if (!UImanager.recording)
