@@ -14,7 +14,7 @@ VRM_AI.unitypackageをインポートして、Pythonスクリプトの環境を�
 
 UniVRM（VRM 1.0及びVRM 0.x）：https://github.com/vrm-c/UniVRM
 
-Advanced INI Parser：https://assetstore.unity.com/packages/tools/advanced-ini-parser-23706?locale=ja-JP
+Advanced INI Parser：https://assetstore.unity.com/packages/tools/advanced-ini-parser-23706
 
 uLipSync：https://github.com/hecomi/uLipSync
 
