@@ -9,7 +9,8 @@ VRMを読み込める。
 自分で開発する為にUnityで運用するには
 
 https://drive.google.com/drive/folders/12Zlpbs-vNHBOyW2toBeXlFWw-5XH5XCh?usp=sharing
-VRM_AI.unitypackageをインポートして、Pythonスクリプトの環境を各自作ってください。
+
+でVRM_AI.unitypackageをインポートして、Pythonスクリプトの環境を各自作ってください。
 
 また下記のアセットが必要です。インポートしてください。
 
