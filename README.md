@@ -3,8 +3,12 @@ Unity3DとChatGPTを連携させることができるソフト。
 VRMを読み込める。
 
 # Usage
+まだビルド版は非公開
+
+# unitypakage
+
 https://drive.google.com/drive/folders/12Zlpbs-vNHBOyW2toBeXlFWw-5XH5XCh?usp=sharing
-をDLし、unitypakageをインポートして、Pythonスクリプトの環境を各自作ってください。
+VRM_AI.unitypackageをインポートして、Pythonスクリプトの環境を各自作ってください。
 
 また下記のアセットが必要です。インポートしてください。
 
@@ -21,7 +25,7 @@ uLipSync-v〇〇〇-with-Samples.unitypackage等のwith-Samplesのunitypackage�
 # Unity_setting
 ゲームタブの解像度を1920*1080にする。
 
-また、このままだと日本語フォントがTextMeshProで使えないので以下のサイトを参考にNotoSansJP-Medium SDF.assetを作成すること。
+また、このままだと日本語フォントがTextMeshProで使えないので以下のサイトを参考にNotoSansJP-〇〇 SDF.assetを作成し各種コンポーネントのフォントに設定すること。
 https://taidanahibi.com/unity/text-mesh-pro/
 
 ※Unity 2021.3.15f1環境で開発しました。（動作を保証するものではありません）
