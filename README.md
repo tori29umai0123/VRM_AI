@@ -4,6 +4,7 @@ https://drive.google.com/drive/folders/12Zlpbs-vNHBOyW2toBeXlFWw-5XH5XCh?usp=sha
 をDLしてUnitypakageはUnityにインポート。各種Pythonファイルは自分で環境を作って実行してください。
 
 上記のUnitypakageを動かすには以下のアセットが必要です。
+
 【UniVRM】
 VRM 1.0 Import/Export及び、VRM 0.x Import/Exportが必要です。
 開発時使っていたのはバージョンは
