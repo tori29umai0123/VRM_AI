@@ -24,9 +24,9 @@ uLipSyncを動かすにはJobSystemとBurstCompilerが必要なのでインポ�
 uLipSync-v2.6.1-with-Samples.unitypackage
 等のwith-Samplesのunitypackageをインポートするとはじめからサンプルがついてきます。
 
-また、このままだと日本語フォントがTextMeshProで使えないので以下のサイトを参考にNotoSansJP-Medium SDF.assetを作成すること。
+また、このままだと日本語フォントがTextMeshProで使えないので以下のサイトを参考にNotoSansJP-Medium SDF.assetを作成し、
+各種TextMeshProコンポーネントにフォント設定すること。
 https://taidanahibi.com/unity/text-mesh-pro/
-フォント自体は『Assets\TextMesh Pro\Resources\Fonts & Materials\NotoSansJP-Medium.otf』に入っています。
 
 【Unity側の設定】
 ゲームタブの解像度を1920*1080にする。
