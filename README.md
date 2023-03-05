@@ -23,6 +23,5 @@ uLipSync-v〇〇〇-with-Samples.unitypackage等のwith-Samplesのunitypackage�
 
 また、このままだと日本語フォントがTextMeshProで使えないので以下のサイトを参考にNotoSansJP-Medium SDF.assetを作成すること。
 https://taidanahibi.com/unity/text-mesh-pro/
-フォント自体は『Assets\TextMesh Pro\Resources\Fonts & Materials\NotoSansJP-Medium.otf』に入っています。
 
 ※Unity 2021.3.15f1環境で開発しました。（動作を保証するものではありません）
