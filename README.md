@@ -1,6 +1,6 @@
 # VRM_AI
 以下のファイル
-https://drive.google.com/drive/folders/12Zlpbs-vNHBOyW2toBeXlFWw-5XH5XCh?usp=share_link）
+https://drive.google.com/drive/folders/12Zlpbs-vNHBOyW2toBeXlFWw-5XH5XCh?usp=share_link
 をDLしてUnitypakageはUnityにインポート。各種Pythonファイルは自分で環境を作って実行してください。
 
 上記のUnitypakageを動かすには以下のアセットが必要です。
