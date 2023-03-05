@@ -1,5 +1,5 @@
 # VRM_AI
-VRM_AI.unitypackageをDLしてインポートしてください
+こちらのファイル（https://drive.google.com/drive/folders/12Zlpbs-vNHBOyW2toBeXlFWw-5XH5XCh?usp=share_link）をDLして察してください。
 
 このスクリプトを動かすには以下のアセットが必要です。
 【UniVRM】
