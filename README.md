@@ -6,6 +6,7 @@ VRMを読み込める。
 まだビルド版は非公開
 
 # unitypakage
+自分で開発する為にUnityで運用するには
 
 https://drive.google.com/drive/folders/12Zlpbs-vNHBOyW2toBeXlFWw-5XH5XCh?usp=sharing
 VRM_AI.unitypackageをインポートして、Pythonスクリプトの環境を各自作ってください。
@@ -22,7 +23,6 @@ uLipSyncを動かすにはJobSystemとBurstCompilerが必要なのでインポ�
 サンプルスクリプト必要なのでインポートしておいてください。
 uLipSync-v〇〇〇-with-Samples.unitypackage等のwith-Samplesのunitypackageをインポートするとはじめからサンプルがついてきます。
 
-# Unity_setting
 ゲームタブの解像度を1920*1080にする。
 
 また、このままだと日本語フォントがTextMeshProで使えないので以下のサイトを参考にNotoSansJP-〇〇 SDF.assetを作成し各種コンポーネントのフォントに設定すること。
