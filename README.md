@@ -1,7 +1,9 @@
 # VRM_AI
-こちらのファイル（https://drive.google.com/drive/folders/12Zlpbs-vNHBOyW2toBeXlFWw-5XH5XCh?usp=share_link）をDLして察してください。
+以下のファイル
+https://drive.google.com/drive/folders/12Zlpbs-vNHBOyW2toBeXlFWw-5XH5XCh?usp=share_link）
+をDLしてUnitypakageはUnityにインポート。各種Pythonファイルは自分で環境を作って実行してください。
 
-このスクリプトを動かすには以下のアセットが必要です。
+上記のUnitypakageを動かすには以下のアセットが必要です。
 【UniVRM】
 VRM 1.0 Import/Export及び、VRM 0.x Import/Exportが必要です。
 開発時使っていたのはバージョンは
