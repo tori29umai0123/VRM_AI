@@ -24,33 +24,36 @@ public class UImanager : MonoBehaviour
         MODE = SystemSetting.InputMode;
     }
 
-    public void Update()
+    private settingAIthinking()
     {
-        if (thinking)
-        {
-            AI_thinking.enabled = true;
-            Voice_input.SetActive(false);
-            Text_input.SetActive(false);
-        }
-        else
-        {
+        if (!thinking){
             AI_thinking.enabled = false;
+            return;
         }
-        if (!thinking & MODE == "text")
-        {
-            Voice_input.SetActive(false);
-            Text_input.SetActive(true);
+        AI_thinking.enabled = true;
+        Voice_input.SetActive(false);
+        Text_input.SetActive(false);
+        return;
+    }
+
+    private settingInputActivation(string mode){
+        isActiveText = false;
+        isActiveVoice = false;
+        switch(mode){
+            case "text":
+                isActiveText = true;
+                break;
+            case "voice":
+                isActiveVoice = true;
+                break;
+            case "script":
+                break;
         }
-        else if (!thinking & MODE == "voice")
-        {
-            Voice_input.SetActive(true);
-            Text_input.SetActive(false);
-        }
-        else if (!thinking & MODE == "script")
-        {
-            Text_input.SetActive(false);
-            Voice_input.SetActive(false);
-        }
+        Text_input.SetActive(isActiveText);
+        Voice_input.SetActive(isActiveVoice);
+    }
+
+    private settingVoiceActivation(){
         if (recording | listening)
         {
             Voice_send.SetActive(false);
@@ -70,22 +73,35 @@ public class UImanager : MonoBehaviour
             Voice_rec.color = new Color32(255, 255, 255, 255);
             Voice_send.SetActive(true);
         }
-        if (!talking)
-        {
-            Voice_responce.text = "";
-        }
-        else
-        {
+    }
+
+    private settingTalk(){
+        if(talking){
             Voice_input.SetActive(false);
+            return;
         }
-        if (recognizeText.text != "" | Voice_responce.text != "")
-        {
-            background.SetActive(true);
-            Text_input.SetActive(false);
-        }
-        else
-        {
+        Voice_responce.text = "";
+    }
+
+    private recognizeVoice(){
+        if (recognizeText == "" && Voice_responce.text == ""){
             background.SetActive(false);
+            return;
         }
+        background.SetActive(true);
+        Text_input.SetActive(false);
+    }
+
+    public void Update()
+    {
+
+        settingAIthinking();
+        if(!thinking){
+            settingInputActivation();
+        }
+        settingVoiceActivation();
+        settingTalk();
+        recognizeVoice()
+
     }
 }
