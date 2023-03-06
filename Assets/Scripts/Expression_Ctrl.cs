@@ -52,6 +52,7 @@ public class Expression_Ctrl : MonoBehaviour
 
     public void Emocon()
     {
+        // 連想配列を使って、Emoteの文字列に対応するExpressionPresetを取得する
         var expressionPreset = new Dictionary<string, ExpressionPreset>{
             "Relaxed": ExpressionPreset.relaxed,
             "Happy": ExpressionPreset.happy,
