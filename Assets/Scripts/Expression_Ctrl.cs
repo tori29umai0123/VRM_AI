@@ -52,26 +52,14 @@ public class Expression_Ctrl : MonoBehaviour
 
     public void Emocon()
     {
-        if (Emote == "Relaxed")
-        {
-            Controller.Runtime.Expression.SetWeight(ExpressionKey.CreateFromPreset(ExpressionPreset.relaxed), count);
+        var expressionPreset = new Dictionary<string, ExpressionPreset>{
+            "Relaxed": ExpressionPreset.relaxed,
+            "Happy": ExpressionPreset.happy,
+            "Angry": ExpressionPreset.angry,
+            "Sad": ExpressionPreset.sad,
+            "Surprised": ExpressionPreset.surprised
         }
-        if (Emote == "Happy")
-        {
-            Controller.Runtime.Expression.SetWeight(ExpressionKey.CreateFromPreset(ExpressionPreset.happy), count);
-        }
-        if (Emote == "Angry")
-        {
-            Controller.Runtime.Expression.SetWeight(ExpressionKey.CreateFromPreset(ExpressionPreset.angry), count);
-        }
-        if (Emote == "Sad")
-        {
-            Controller.Runtime.Expression.SetWeight(ExpressionKey.CreateFromPreset(ExpressionPreset.sad), count);
-        }
-        if (Emote == "Surprised")
-        {
-            Controller.Runtime.Expression.SetWeight(ExpressionKey.CreateFromPreset(ExpressionPreset.surprised), count);
-        }
+        Controller.Runtime.Expression.SetWeight(ExpressionKey.CreateFromPreset(expressionPreset[Emote]), count);
     }
     void Countup()
     {
