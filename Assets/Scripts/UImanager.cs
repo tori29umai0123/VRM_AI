@@ -9,13 +9,13 @@ public class UImanager : MonoBehaviour
     public static bool recording = false;
     public static bool talking = false;
     public static bool listening = false;
-    public  string MODE = "text";
+    public string MODE = "text";
     public Image AI_thinking;
     public Image Voice_rec;
     public GameObject Text_input;
     public GameObject Voice_input;
-    public TMP_InputField inputField;
-    public TextMeshProUGUI recognizeText;
+    public TMP_InputField text_inputField;
+    public TMP_InputField voice_inputField;
     public TextMeshProUGUI Voice_responce;
     public GameObject Voice_send;
     public GameObject background;
@@ -24,33 +24,44 @@ public class UImanager : MonoBehaviour
         MODE = SystemSetting.InputMode;
     }
 
-    public void Update()
+    private void settingAIthinking()
     {
-        if (thinking)
-        {
-            AI_thinking.enabled = true;
-            Voice_input.SetActive(false);
-            Text_input.SetActive(false);
-        }
-        else
+        if (!thinking)
         {
             AI_thinking.enabled = false;
+            return;
         }
-        if (!thinking & MODE == "text")
+        AI_thinking.enabled = true;
+        Voice_input.SetActive(false);
+        Text_input.SetActive(false);
+        return;
+    }
+
+    private void settingInputActivation(string mode)
+    {
+        var isActiveText = false;
+        var isActiveVoice = false;
+        switch (mode)
         {
-            Voice_input.SetActive(false);
-            Text_input.SetActive(true);
+            case "text":
+                isActiveText = true;
+                isActiveVoice = false;
+                break;
+            case "voice":
+                isActiveText = false;
+                isActiveVoice = true;
+                break;
+            case "script":
+                isActiveText = false;
+                isActiveVoice = false;
+                break;
         }
-        else if (!thinking & MODE == "voice")
-        {
-            Voice_input.SetActive(true);
-            Text_input.SetActive(false);
-        }
-        else if (!thinking & MODE == "script")
-        {
-            Text_input.SetActive(false);
-            Voice_input.SetActive(false);
-        }
+        Text_input.SetActive(isActiveText);
+        Voice_input.SetActive(isActiveVoice);
+    }
+
+    private void settingVoiceActivation()
+    {
         if (recording | listening)
         {
             Voice_send.SetActive(false);
@@ -70,22 +81,31 @@ public class UImanager : MonoBehaviour
             Voice_rec.color = new Color32(255, 255, 255, 255);
             Voice_send.SetActive(true);
         }
-        if (!talking)
+    }
+
+    private void settingTalk()
+    {
+        if (talking)
         {
-            Voice_responce.text = "";
-        }
-        else
-        {
-            Voice_input.SetActive(false);
-        }
-        if (recognizeText.text != "" | Voice_responce.text != "")
-        {
+            Voice_responce.enabled = true;
             background.SetActive(true);
-            Text_input.SetActive(false);
+            return;
         }
-        else
+        Voice_responce.enabled = false;
+        background.SetActive(false);
+    }
+    public void Update()
+    {
+        if (!thinking & !recording & !talking & !listening)
         {
-            background.SetActive(false);
+            settingInputActivation(MODE);
         }
+        if (!thinking)
+        {
+            settingVoiceActivation();
+        }
+        settingAIthinking();
+        settingVoiceActivation();
+        settingTalk();
     }
 }

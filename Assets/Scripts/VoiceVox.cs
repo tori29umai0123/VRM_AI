@@ -5,9 +5,7 @@ public class VoiceVox : MonoBehaviour
 {
     public string Message;
     public int narrator;
-
-
-    public void Start()
+    public void Awake()
     {
         GameObject Game_system = GameObject.FindGameObjectWithTag("Game_system");
         SystemSetting SystemSetting = Game_system.GetComponent<SystemSetting>();

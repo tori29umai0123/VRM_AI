@@ -11,12 +11,10 @@ public class EditorRunTerminal : MonoBehaviour
     public static string Emo;
     public static float Emo_Weight;
     public UImanager UImanager;
-    public string logPath;
 
     public void Start()
     {
         URL = SystemSetting.AI_URL;
-        logPath = SystemSetting.ChatGPT_log;
     }
 
     public void RunTerminal()
@@ -30,11 +28,11 @@ public class EditorRunTerminal : MonoBehaviour
         WWWForm form = new WWWForm();
         if (UImanager.MODE == "text")
         {
-            form.AddField("inputtext", UImanager.inputField.text);
+            form.AddField("inputtext", UImanager.text_inputField.text);
         }
         if (UImanager.MODE == "voice")
         {
-            form.AddField("inputtext", UImanager.recognizeText.text);
+            form.AddField("inputtext", UImanager.voice_inputField.text);
         }
         if (UImanager.MODE == "script")
         {
@@ -60,16 +58,8 @@ public class EditorRunTerminal : MonoBehaviour
             Message = responce;
         }
         LoadModel.CallVoice.Speak();
-        UImanager.inputField.text = "";
-        UImanager.recognizeText.text = "";
+        UImanager.text_inputField.text = "";
+        UImanager.voice_inputField.text = "";
         UImanager.Voice_responce.text = Message;
-    }
-
-private void OnApplicationQuit()
-    {
-        if (System.IO.File.Exists(logPath))
-        {
-            File.Delete(@logPath);
-        }
     }
 }

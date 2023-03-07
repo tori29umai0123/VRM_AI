@@ -10,21 +10,22 @@ public class VoicePeak : MonoBehaviour
     public string Message;
     public string exepath;
     public string outpath;
+    public string wavpath;
     public string narrator;
     public Process exProcess;
 
-    public void Start()
+    public void Awake()
     {
         GameObject Game_system = GameObject.FindGameObjectWithTag("Game_system");
         SystemSetting SystemSetting = Game_system.GetComponent<SystemSetting>();
-        exepath = SystemSetting.VOICEPEAK_exe;
-        outpath = SystemSetting.VOICEPEAK_out;
-        narrator = SystemSetting.VOICEPEAK_narrator;
+        exepath = SystemSetting.VoicePeak_exe;
+        outpath = "\"" + Application.temporaryCachePath + "/output.wav" + "\"";
+        narrator = "\"" + SystemSetting.VoicePeak_narrator + "\"";
+        wavpath = Application.temporaryCachePath + "/output.wav";
     }
     public void VoicePeakStart()
     {
-        var input_Message = EditorRunTerminal.Message;
-        Message = "\"" + input_Message + "\"";
+        Message = "\"" + EditorRunTerminal.Message + "\"";
         var _ = SpeakAsync();
     }
 
@@ -35,8 +36,7 @@ public class VoicePeak : MonoBehaviour
         {
             exProcess = new Process();
             exProcess.StartInfo.FileName = exepath;
-            exProcess.StartInfo.Arguments = "-s " + Message + " -n " + "\"" + narrator + "\"" + " -o " + outpath;
-            exProcess.StartInfo.UseShellExecute = false;
+            exProcess.StartInfo.Arguments = "-s " + Message + " -n " + narrator + " -o " + outpath;
 
             //é¿çs
             exProcess.Start();
@@ -51,7 +51,7 @@ public class VoicePeak : MonoBehaviour
     IEnumerator Play()
     {
         var source = this.GetComponent<AudioSource>();
-        using (UnityWebRequest req = UnityWebRequestMultimedia.GetAudioClip("file://" + outpath, AudioType.WAV))
+        using (UnityWebRequest req = UnityWebRequestMultimedia.GetAudioClip("file://" + wavpath, AudioType.WAV))
         {
             ((DownloadHandlerAudioClip)req.downloadHandler).streamAudio = true;
             req.SendWebRequest();
@@ -74,4 +74,5 @@ public class VoicePeak : MonoBehaviour
         yield return new WaitForSeconds(CallVoice.emote_time);
         UImanager.talking = false;
     }
+
 }

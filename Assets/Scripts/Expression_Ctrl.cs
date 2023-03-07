@@ -52,6 +52,7 @@ public class Expression_Ctrl : MonoBehaviour
 
     public void Emocon()
     {
+        // 連想配列を使って、Emoteの文字列に対応するExpressionPresetを取得するといいと言われたが実装方法がわからんので後回し
         if (Emote == "Relaxed")
         {
             Controller.Runtime.Expression.SetWeight(ExpressionKey.CreateFromPreset(ExpressionPreset.relaxed), count);

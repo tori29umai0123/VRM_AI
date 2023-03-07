@@ -4,8 +4,8 @@ public class CallVoice : MonoBehaviour
 {
     public string VoiceApp;
     public static float emote_time;
-  
-    public void Start()
+
+    public void Awake()
     {
         GameObject Game_system = GameObject.FindGameObjectWithTag("Game_system");
         SystemSetting SystemSetting = Game_system.GetComponent<SystemSetting>();

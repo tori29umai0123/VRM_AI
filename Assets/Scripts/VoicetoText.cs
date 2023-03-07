@@ -44,12 +44,12 @@ public class VoicetoText : MonoBehaviour
 
     IEnumerator CheckVolume()
     {
-        float muteTime = 0f; // tracks how long TestON has been false
+        float muteTime = 0f;
         while (true)
         {
             if (VolumeON)
             {
-                muteTime = 0f; // reset test timer
+                muteTime = 0f;
                 if (!first_voice)
                 {
                     first_voice = true;
@@ -57,7 +57,7 @@ public class VoicetoText : MonoBehaviour
             }
             else
             {
-                muteTime += Time.deltaTime; // increment test timer
+                muteTime += Time.deltaTime;
                 if (muteTime >= muteDuration & UImanager.recording)
                 {
                     if (first_voice)
@@ -66,7 +66,7 @@ public class VoicetoText : MonoBehaviour
                     }
                 }
             }
-            yield return null; // wait for the next frame to check TestON again
+            yield return null;
         }
     }
 
@@ -86,7 +86,7 @@ public class VoicetoText : MonoBehaviour
         yield return webRequest.SendWebRequest();
         UnityEngine.Debug.Log(webRequest.downloadHandler.text);
         var responce = webRequest.downloadHandler.text;
-        UImanager.recognizeText.text = responce;
+        UImanager.voice_inputField.text = responce;
         UImanager.listening = false;
     }
 }
