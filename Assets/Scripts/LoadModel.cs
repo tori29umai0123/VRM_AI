@@ -30,6 +30,7 @@ public class LoadModel : MonoBehaviour
             {
                 animCtrl.runtimeAnimatorController = anime_ctl;
             }
+            //uLipSyncを設定
             uLipSyncSetup.target = go;
             uLipSyncSetup.SetupBlendShpae();
             uLipSyncSetup.SetupLipSync();
