@@ -41,3 +41,5 @@ Assets/setteing.ini
 Assets/setteing.ini.meta
 VideoCaptureLib_Log.txt
 Assets/setteing.ini
+.gitattributes
+.gitignore
