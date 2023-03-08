@@ -15,7 +15,7 @@ public class VoicetoText : MonoBehaviour
 
     public void Start()
     {
-        URL = SystemSetting.whisper_URL;
+        URL = SystemSetting.AI_URL;
     }
     public void ClickRec()
     {
@@ -81,6 +81,7 @@ public class VoicetoText : MonoBehaviour
     IEnumerator OnSend(string url)
     {
         WWWForm form = new WWWForm();
+        form.AddField("inputtext", "voice_to_text");
         using UnityWebRequest webRequest = UnityWebRequest.Post(url, form);
         webRequest.downloadHandler = new DownloadHandlerBuffer();
         yield return webRequest.SendWebRequest();

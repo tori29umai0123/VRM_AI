@@ -43,3 +43,8 @@ VideoCaptureLib_Log.txt
 Assets/setteing.ini
 .gitattributes
 .gitignore
+Assets/Scripts/AutoRun_exe.cs
+OpenAI_API/OpenAI_API.exe
+OpenAI_API/system_settings.txt
+OpenAI_API/wav/input.wav
+OpenAI_API/config.ini

@@ -31,7 +31,8 @@ namespace NekomimiDaimao
 
         public void Start()
         {
-            path = SystemSetting.inVoice;
+            var exefile = Get_ParentDirectory.GetParentDirectory(Application.dataPath, 1);
+            path = exefile + "/OpenAI_API/wav/input.wav";
         }
 
         void Update()
