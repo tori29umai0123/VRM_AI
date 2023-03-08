@@ -22,7 +22,7 @@ public class SystemSetting : MonoBehaviour
     public void Awake()
     {
         var exefile = Get_ParentDirectory.GetParentDirectory(Application.dataPath, 1);
-        inifile = exefile + "/setteing.ini";
+        inifile = exefile + "/setting.ini";
         INIParser ini = new INIParser();
         ini.Open(inifile);
         VRMpath = ini.ReadValue("VRM", "VRMpath", "");
