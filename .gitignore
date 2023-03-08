@@ -1,0 +1,32 @@
+*.vsidx
+*.lock
+.vs/VRM_AI/v16/.suo
+.vs/VRM_AI/v17/.suo
+*.bin
+.vs/VRM_rec/v17/.suo
+*.json
+.vsconfig
+*.csproj
+Assets/Advanced INI Parser
+Assets/TextMesh Pro
+Assets/Advanced INI Parser.meta
+Assets/TextMesh Pro.meta
+Assets/uLipSync
+Assets/uLipSync.meta
+Assets/UniGLTF.meta
+Assets/UniGLTF
+Assets/VRM.meta
+Assets/VRM
+Assets/VRM10.meta
+Assets/VRM10
+Assets/VRMShaders.meta
+Assets/VRMShaders
+Library
+Logs
+obj
+Packages
+ProjectSettings
+UserSettings
+VideoCaptureLib_Log.txt
+*.sln
+OpenAI_API/wav/input.wav
