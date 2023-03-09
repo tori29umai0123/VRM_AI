@@ -1,5 +1,6 @@
 # VRM_AI
 VRMファイルを読み込んでChatGPTのAPIとWhisperを連携させるソフトです。
+つまりVRM（3Dモデル）とOpenAIのAPIキーさえあれば3DモデルアバターのAIとおしゃべりできます。
 Pythonスクリプトが書ければ自由に拡張できます。あくまで仮公開なので悪しからず。
 
 # Usage
