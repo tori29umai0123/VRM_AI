@@ -1,5 +1,4 @@
 # VRM_AI
-VRM_AI v0.2
 VRMファイルを読み込んでChatGPTのAPIとWhisperを連携させるソフトです。
 Pythonスクリプトが書ければ自由に拡張できます。あくまで仮公開なので悪しからず。
 
