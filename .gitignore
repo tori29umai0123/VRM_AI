@@ -30,3 +30,4 @@ UserSettings
 VideoCaptureLib_Log.txt
 *.sln
 OpenAI_API/wav/input.wav
+myconfig.ini

@@ -85,7 +85,7 @@ public class UImanager : MonoBehaviour
 
     private void settingTalk()
     {
-        if (talking)
+        if (talking & SystemSetting.Responce_display == "true")
         {
             Voice_responce.enabled = true;
             background.SetActive(true);

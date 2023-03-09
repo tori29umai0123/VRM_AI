@@ -18,11 +18,11 @@ public class SystemSetting : MonoBehaviour
     public int VoiceVox_narrator;
 
     public string backgroundColor;
-
+    public string Responce_display;
     public void Awake()
     {
         var exefile = Get_ParentDirectory.GetParentDirectory(Application.dataPath, 1);
-        inifile = exefile + "/setting.ini";
+        inifile = exefile + "/config.ini";
         INIParser ini = new INIParser();
         ini.Open(inifile);
         VRMpath = ini.ReadValue("VRM", "VRMpath", "");
@@ -41,6 +41,7 @@ public class SystemSetting : MonoBehaviour
         var camera = cameraObject.GetComponent<Camera>();
         // îwåiêFÇïœçX
         camera.backgroundColor = MyColorUtility.ToColor(backgroundColor);
+        Responce_display = ini.ReadValue("Other", "Responce_display", "");
         ini.Close();
     }
 }
