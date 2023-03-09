@@ -5,8 +5,8 @@ Pythonスクリプトが書ければ自由に拡張できます。あくまで�
 
 # Usage
 https://github.com/tori29umai0123/VRM_AI/releases
-から最新版のVRM_AI_v〇〇.zipを解凍し、VRM_AI_v〇〇\setteing.ini、VRM_AI_v〇〇\OpenAI_API\config.ini、VRM_AI_v〇〇\OpenAI_API\system_settings.txt、を設定し、VRM_AI.exeを実行して下さい。
-設定の詳細はからVRM_AI_v〇〇.zip内のreadme.txtに書いてあります。
+から最新版のVRM_AI_v〇〇.zipを解凍し、config.ini、Charactor_settings.txt、を設定し、VRM_AI.exeを実行して下さい。
+設定の詳細はVRM_AI_v〇〇.zip内のreadme.txtに書いてあります。
 
 # build
 自力でビルドする場合、下記のアセットが必要です。
