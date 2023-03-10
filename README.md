@@ -31,3 +31,7 @@ uLipSyncを動かすにはJobSystemとBurstCompilerが必要なのでインポ�
 https://taidanahibi.com/unity/text-mesh-pro/
 
 ※Unity 2021.3.15f1環境で開発しました。（動作を保証するものではありません）
+
+# OpenAI_API.exe
+Python製のスクリプトです。ローカルアプリAPIサーバーとしてUnityと連携します。以下解説記事。
+https://note.com/tori29umai/n/n53e1db740e0b
