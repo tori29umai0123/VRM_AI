@@ -25,10 +25,13 @@ https://github.com/hecomi/uLipSync
 uLipSyncを動かすにはJobSystemとBurstCompilerが必要なのでインポートしておいてください。
 サンプルスクリプト必要なのでインポートしておいてください。
  uLipSync-v〇〇〇-with-Samples.unitypackage等のwith-Samplesのunitypackageをインポートするとはじめからサンプルがついてきます。
-
+ 
 【Unityの設定】
 このままだと日本語フォントがTextMeshProで使えないので以下のサイトを参考に、NotoSansJP-〇〇 SDF.asset等を作成し各種コンポーネントのフォントに設定すること。 
 https://taidanahibi.com/unity/text-mesh-pro/
+
+ビルド後のアスペクトの維持に以下のスクリプトを使用しています。
+https://tech.drecom.co.jp/unity-keep-windows-screen-ratio/
 
 ※Unity 2021.3.15f1環境で開発しました。（動作を保証するものではありません）
 
