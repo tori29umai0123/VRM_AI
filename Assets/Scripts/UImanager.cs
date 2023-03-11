@@ -9,6 +9,7 @@ public class UImanager : MonoBehaviour
     public static bool recording = false;
     public static bool talking = false;
     public static bool listening = false;
+    public bool BG_Image;
     public string MODE = "text";
     public Image AI_thinking;
     public Image Voice_rec;
@@ -19,13 +20,35 @@ public class UImanager : MonoBehaviour
     public TextMeshProUGUI Voice_responce;
     public GameObject Voice_send;
     public GameObject background;
-    public Camera Camera;
+    public Image BackGround;
     public GameObject BG_responce;
 
     public void Start()
     {
         MODE = SystemSetting.InputMode;
-        Camera.backgroundColor = MyColorUtility.ToColor(SystemSetting.backgroundColor);
+
+        var BG = SystemSetting.background;
+
+        if (BG.StartsWith("#"))
+        {
+            BG_Image = false;
+            BG_SetupImage();
+            return;
+        }
+        BG_Image = true;
+        BG_SetupImage();
+    }
+
+    public void BG_SetupImage()
+    {
+        if (BG_Image)
+        {
+            var path = SystemSetting.background;
+            Texture2D tex = ImageLoad.readImage(path);
+            BackGround.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.zero);
+            return;
+        }
+        BackGround.color = MyColorUtility.ToColor(SystemSetting.background);
     }
 
     private void settingAIthinking()
@@ -93,7 +116,10 @@ public class UImanager : MonoBehaviour
         {
             Voice_responce.enabled = true;
             background.SetActive(true);
-            BG_responce.SetActive(true);
+            if (SystemSetting.background != "Image")
+            {
+                BG_responce.SetActive(true);
+            }
             return;
         }
         Voice_responce.enabled = false;

@@ -17,7 +17,9 @@ public class SystemSetting : MonoBehaviour
     string VoiceVox_narrator_string;
     public int VoiceVox_narrator;
 
+    public string background;
     public string backgroundColor;
+    public string backgroundImage;
     public string Responce_display;
 
     public void Awake()
@@ -36,7 +38,7 @@ public class SystemSetting : MonoBehaviour
         VoiceVox_exe = ini.ReadValue("AI_Voice", "VoiceVox_exe", "");
         VoiceVox_narrator_string = ini.ReadValue("AI_Voice", "VoiceVox_narrator", "");
         VoiceVox_narrator = int.Parse(VoiceVox_narrator_string);
-        backgroundColor = ini.ReadValue("Other", "BackGroundColor", "");
+        background = ini.ReadValue("Other", "BackGround", "");
         Responce_display = ini.ReadValue("Other", "Responce_display", "");
         ini.Close();
     }
