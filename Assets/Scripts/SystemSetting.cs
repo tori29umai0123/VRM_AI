@@ -16,11 +16,22 @@ public class SystemSetting : MonoBehaviour
     public string VoiceVox_exe;
     string VoiceVox_narrator_string;
     public int VoiceVox_narrator;
+    public string COEIROINK_exe;
+    string COEIROINK_narrator_string;
+    public int COEIROINK_narrator;
 
     public string background;
     public string backgroundColor;
     public string backgroundImage;
     public string Responce_display;
+    public string Responce_frame;
+    public string frame_border_string;
+    public int frame_border;
+    public string fontColor;
+    public string OutlineColor;
+    public string Thickness_string;
+    public float Thickness;
+
 
     public void Awake()
     {
@@ -38,8 +49,21 @@ public class SystemSetting : MonoBehaviour
         VoiceVox_exe = ini.ReadValue("AI_Voice", "VoiceVox_exe", "");
         VoiceVox_narrator_string = ini.ReadValue("AI_Voice", "VoiceVox_narrator", "");
         VoiceVox_narrator = int.Parse(VoiceVox_narrator_string);
+        COEIROINK_exe = ini.ReadValue("AI_Voice", "COEIROINK_exe", "");
+        COEIROINK_narrator_string = ini.ReadValue("AI_Voice", "COEIROINK_narrator", "");
+        COEIROINK_narrator = int.Parse(COEIROINK_narrator_string);
+
+
+
         background = ini.ReadValue("Other", "BackGround", "");
         Responce_display = ini.ReadValue("Other", "Responce_display", "");
+        Responce_frame = ini.ReadValue("Other", "Responce_frame", "");
+        frame_border_string = ini.ReadValue("Other", "frame_border", "");
+        frame_border = int.Parse(frame_border_string);
+        fontColor = ini.ReadValue("Other", "fontColor", "");
+        OutlineColor = ini.ReadValue("Other", "OutlineColor", "");
+        Thickness_string = ini.ReadValue("Other", "Thickness", "");
+        Thickness = float.Parse(Thickness_string);
         ini.Close();
     }
 }

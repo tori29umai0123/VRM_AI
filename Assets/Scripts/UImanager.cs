@@ -9,7 +9,6 @@ public class UImanager : MonoBehaviour
     public static bool recording = false;
     public static bool talking = false;
     public static bool listening = false;
-    public bool BG_Image;
     public string MODE = "text";
     public Image AI_thinking;
     public Image Voice_rec;
@@ -19,29 +18,24 @@ public class UImanager : MonoBehaviour
     public TMP_InputField voice_inputField;
     public TextMeshProUGUI Voice_responce;
     public GameObject Voice_send;
-    public GameObject background;
-    public Image BackGround;
     public GameObject BG_responce;
+    public Image BackGround;
+    public Material FontMaterial;
 
     public void Start()
     {
         MODE = SystemSetting.InputMode;
 
-        var BG = SystemSetting.background;
-
-        if (BG.StartsWith("#"))
-        {
-            BG_Image = false;
-            BG_SetupImage();
-            return;
-        }
-        BG_Image = true;
         BG_SetupImage();
+        BG_res_SetupImage();
+        FontSet();
     }
 
     public void BG_SetupImage()
     {
-        if (BG_Image)
+        var BG = SystemSetting.background;
+
+        if (!BG.StartsWith("#"))
         {
             var path = SystemSetting.background;
             Texture2D tex = ImageLoad.readImage(path);
@@ -50,6 +44,32 @@ public class UImanager : MonoBehaviour
         }
         BackGround.color = MyColorUtility.ToColor(SystemSetting.background);
     }
+
+    public void FontSet()
+    {
+        var fontColor = MyColorUtility.ToColor(SystemSetting.fontColor);
+        FontMaterial.SetColor("_FaceColor", fontColor);
+        var OutlineColor = MyColorUtility.ToColor(SystemSetting.OutlineColor);
+        FontMaterial.SetColor("_OutlineColor", OutlineColor);
+        var Thickness = SystemSetting.Thickness;
+        FontMaterial.SetFloat("_OutlineWidth", Thickness);
+    }
+
+    public void BG_res_SetupImage()
+    {
+        var RFpatn = SystemSetting.Responce_frame;
+        var res_image = BG_responce.GetComponent<Image>();
+        var frame_border = SystemSetting.frame_border;
+        if (RFpatn != "None")
+        {
+            res_image.color = new Color(1, 1, 1, 1);
+            Texture2D tex = ImageLoad.readImage(RFpatn);
+            res_image.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.zero, 100.0f,0, SpriteMeshType.FullRect, new Vector4(frame_border, frame_border, frame_border, frame_border));
+            return;
+        }
+        res_image.color = new Color(0, 0, 0, 0.9f);
+    }
+
 
     private void settingAIthinking()
     {
@@ -114,17 +134,11 @@ public class UImanager : MonoBehaviour
     {
         if (talking & SystemSetting.Responce_display == "true")
         {
-            Voice_responce.enabled = true;
-            background.SetActive(true);
-            if (SystemSetting.background != "Image")
-            {
-                BG_responce.SetActive(true);
-            }
+            BG_responce.SetActive(true);
             return;
         }
-        Voice_responce.enabled = false;
+        Voice_responce.text = "";
         BG_responce.SetActive(false);
-        background.SetActive(false);
     }
     public void Update()
     {

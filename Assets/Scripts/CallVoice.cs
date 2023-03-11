@@ -39,5 +39,18 @@ public class CallVoice : MonoBehaviour
                 VoicePeak.VoicePeakStart();
             }
         }
+        if (VoiceApp == "COEIROINK")
+        {
+            if (this.gameObject.GetComponent<VoiceVox>() == null)
+            {
+                COEIROINK COEIROINK = this.gameObject.AddComponent<COEIROINK>();
+                COEIROINK.COEIROINKStart();
+            }
+            else
+            {
+                COEIROINK COEIROINK = this.gameObject.GetComponent<COEIROINK>();
+                COEIROINK.COEIROINKStart();
+            }
+        }
     }
 }

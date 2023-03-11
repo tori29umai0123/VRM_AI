@@ -5,9 +5,12 @@ public class AutoRun_exe : MonoBehaviour
 {
     public SystemSetting SystemSetting;
     public string OpenAI_API_exe;
+    public string COEIROINK_exe;
     public string VoiceVox_exe;
     Process OpenAI_API;
     Process VoiceVox;
+    Process COEIROINK;
+
     void Start()
     {
         var exefile = Get_ParentDirectory.GetParentDirectory(Application.dataPath, 1);
@@ -18,6 +21,11 @@ public class AutoRun_exe : MonoBehaviour
         {
             VoiceVox_exe = SystemSetting.VoiceVox_exe;
             VoiceVox_RUN();
+        }
+        else if (SystemSetting.VoiceApp == "COEIROINK")
+        {
+            COEIROINK_exe = SystemSetting.COEIROINK_exe;
+            COEIROINK_RUN();
         }
     }
     public void OpenAI_API_RUN()
@@ -35,10 +43,22 @@ public class AutoRun_exe : MonoBehaviour
         //é¿çs
         VoiceVox.Start();
     }
+
+
+    public void COEIROINK_RUN()
+    {
+        COEIROINK = new Process();
+        COEIROINK.StartInfo.FileName = COEIROINK_exe;
+
+        //é¿çs
+        COEIROINK.Start();
+    }
+
     private void OnApplicationQuit()
     {
         OpenAI_API_Exit();
         VoiceVox_Exit();
+        COEIROINK_Exit();
     }
 
     public void OpenAI_API_Exit()
@@ -56,9 +76,17 @@ public class AutoRun_exe : MonoBehaviour
 
     public void VoiceVox_Exit()
     {
-        if (!VoiceVox.HasExited)
+        if (VoiceVox != null)
         {
             VoiceVox.Kill();
+        }
+    }
+
+    public void COEIROINK_Exit()
+    {
+        if (COEIROINK != null)
+        {
+            COEIROINK.Kill();
         }
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class VoiceVox : MonoBehaviour
+public class COEIROINK : MonoBehaviour
 {
     public string Message;
     public int narrator;
@@ -9,10 +9,10 @@ public class VoiceVox : MonoBehaviour
     {
         GameObject Game_system = GameObject.FindGameObjectWithTag("Game_system");
         SystemSetting SystemSetting = Game_system.GetComponent<SystemSetting>();
-        narrator = SystemSetting.VoiceVox_narrator;
+        narrator = SystemSetting.COEIROINK_narrator;
     }
 
-    public void VoiceVoxStart()
+    public void COEIROINKStart()
     {
         Message = EditorRunTerminal.Message;
         StartCoroutine("Play");
@@ -26,7 +26,7 @@ public class VoiceVox : MonoBehaviour
 
         var source = this.GetComponent<AudioSource>();
 
-        VoiceVoxApiClient client = new VoiceVoxApiClient();
+        COEIROINKApiClient client = new COEIROINKApiClient();
 
         yield return client.TextToAudioClip(narrator, Message);
 
