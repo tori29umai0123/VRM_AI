@@ -1,12 +1,14 @@
 # VRM_AI
-VRM_AI v0.2
+https://note.com/tori29umai/n/n81f3dd2343f3
+
 VRMファイルを読み込んでChatGPTのAPIとWhisperを連携させるソフトです。
+つまりVRM（3Dモデル）とOpenAIのAPIキーさえあれば3DモデルアバターのAIとおしゃべりできます。
 Pythonスクリプトが書ければ自由に拡張できます。あくまで仮公開なので悪しからず。
 
 # Usage
-https://github.com/tori29umai0123/VRM_AI/releases/tag/VRM_AI_0.2
-からVRM_AI_v〇〇.zipを解凍し、VRM_AI_v〇〇\setteing.ini、VRM_AI_v〇〇\OpenAI_API\config.ini、VRM_AI_v〇〇\OpenAI_API\system_settings.txt、を設定し、VRM_AI.exeを実行して下さい。
-設定の詳細はからVRM_AI_v〇〇.zip内のreadme.txtに書いてあります。
+https://github.com/tori29umai0123/VRM_AI/releases
+から最新版のVRM_AI_v〇〇.zipを解凍し、config.ini、Charactor_settings.txt、を設定し、VRM_AI.exeを実行して下さい。
+設定の詳細はVRM_AI_v〇〇.zip内のreadme.txtに書いてあります。
 
 # build
 自力でビルドする場合、下記のアセットが必要です。
@@ -29,3 +31,7 @@ uLipSyncを動かすにはJobSystemとBurstCompilerが必要なのでインポ�
 https://taidanahibi.com/unity/text-mesh-pro/
 
 ※Unity 2021.3.15f1環境で開発しました。（動作を保証するものではありません）
+
+# OpenAI_API.exe
+Python製のスクリプトです。ローカルアプリAPIサーバーとしてUnityと連携します。以下解説記事。
+https://note.com/tori29umai/n/n53e1db740e0b
