@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Linq;
+using Image = UnityEngine.UI.Image;
 
 public class SystemSetting : MonoBehaviour
 {
@@ -19,6 +19,7 @@ public class SystemSetting : MonoBehaviour
 
     public string backgroundColor;
     public string Responce_display;
+
     public void Awake()
     {
         var exefile = Get_ParentDirectory.GetParentDirectory(Application.dataPath, 1);
@@ -36,11 +37,6 @@ public class SystemSetting : MonoBehaviour
         VoiceVox_narrator_string = ini.ReadValue("AI_Voice", "VoiceVox_narrator", "");
         VoiceVox_narrator = int.Parse(VoiceVox_narrator_string);
         backgroundColor = ini.ReadValue("Other", "BackGroundColor", "");
-        // カメラコンポーネントを取得
-        var cameraObject = gameObject.scene.GetRootGameObjects().FirstOrDefault(obj => obj.GetComponent<Camera>() != null);
-        var camera = cameraObject.GetComponent<Camera>();
-        // 背景色を変更
-        camera.backgroundColor = MyColorUtility.ToColor(backgroundColor);
         Responce_display = ini.ReadValue("Other", "Responce_display", "");
         ini.Close();
     }
