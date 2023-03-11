@@ -3,7 +3,8 @@ https://note.com/tori29umai/n/n81f3dd2343f3
 
 VRMファイルを読み込んでChatGPTのAPIとWhisperを連携させるソフトです。
 つまりVRM（3Dモデル）とOpenAIのAPIキーさえあれば3DモデルアバターのAIとおしゃべりできます。
-Pythonスクリプトが書ければ自由に拡張できます。あくまで仮公開なので悪しからず。
+合成音声ソフトは現在『VoicePeak、VoiceVox、COEIROINK』に対応済み。
+PythonスクリプトとUnityのコードが書ければ自由に拡張できます。あくまで仮公開なので悪しからず。
 
 # Usage
 https://github.com/tori29umai0123/VRM_AI/releases
