@@ -31,3 +31,7 @@ VideoCaptureLib_Log.txt
 *.sln
 OpenAI_API/wav/input.wav
 myconfig.ini
+Assets/Example-StandAloneWin_Scripts.meta
+Assets/Example-StandAloneWin_Scripts
+Assets/UniRx.meta
+Assets/UniRx

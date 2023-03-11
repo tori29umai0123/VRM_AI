@@ -12,7 +12,6 @@ public class UImanager : MonoBehaviour
     public string MODE = "text";
     public Image AI_thinking;
     public Image Voice_rec;
-    public Image BG;
     public GameObject Text_input;
     public GameObject Voice_input;
     public TMP_InputField text_inputField;
@@ -20,12 +19,13 @@ public class UImanager : MonoBehaviour
     public TextMeshProUGUI Voice_responce;
     public GameObject Voice_send;
     public GameObject background;
+    public Camera Camera;
     public GameObject BG_responce;
 
     public void Start()
     {
         MODE = SystemSetting.InputMode;
-        BG.color = MyColorUtility.ToColor(SystemSetting.backgroundColor);
+        Camera.backgroundColor = MyColorUtility.ToColor(SystemSetting.backgroundColor);
     }
 
     private void settingAIthinking()
