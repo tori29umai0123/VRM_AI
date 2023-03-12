@@ -39,3 +39,7 @@ https://tech.drecom.co.jp/unity-keep-windows-screen-ratio/
 # OpenAI_API.exe
 Python製のスクリプトです。ローカルアプリAPIサーバーとしてUnityと連携します。以下解説記事。
 https://note.com/tori29umai/n/n53e1db740e0b
+
+# sample_API.py
+Python製のスクリプトです。OpenAI_API.exeを使わずに独自スクリプトを使いたいとき用のサンプルです。
+AItuber配信等したい人向け。
