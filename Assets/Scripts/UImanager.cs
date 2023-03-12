@@ -9,7 +9,7 @@ public class UImanager : MonoBehaviour
     public static bool recording = false;
     public static bool talking = false;
     public static bool listening = false;
-    public string MODE = "text";
+    public string MODE;
     public Image AI_thinking;
     public Image Voice_rec;
     public GameObject Text_input;
@@ -25,7 +25,6 @@ public class UImanager : MonoBehaviour
     public void Start()
     {
         MODE = SystemSetting.InputMode;
-
         BG_SetupImage();
         BG_res_SetupImage();
         FontSet();

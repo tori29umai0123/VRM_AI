@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
-using System.IO;
 
 public class EditorRunTerminal : MonoBehaviour
 {
@@ -33,10 +32,6 @@ public class EditorRunTerminal : MonoBehaviour
         if (UImanager.MODE == "voice")
         {
             form.AddField("inputtext", UImanager.voice_inputField.text);
-        }
-        if (UImanager.MODE == "script")
-        {
-                form.AddField("inputtext", "script_input");
         }
 
         using UnityWebRequest webRequest = UnityWebRequest.Post(url, form);

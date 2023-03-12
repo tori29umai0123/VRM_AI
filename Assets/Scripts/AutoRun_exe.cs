@@ -13,9 +13,13 @@ public class AutoRun_exe : MonoBehaviour
 
     void Start()
     {
-        var exefile = Get_ParentDirectory.GetParentDirectory(Application.dataPath, 1);
-        OpenAI_API_exe = exefile + "/OpenAI_API/OpenAI_API.exe";
-        OpenAI_API_RUN();
+
+        if (SystemSetting.InputMode != "script")
+        {
+            var exefile = Get_ParentDirectory.GetParentDirectory(Application.dataPath, 1);
+            OpenAI_API_exe = exefile + "/OpenAI_API/OpenAI_API.exe";
+            OpenAI_API_RUN();
+        }
 
         if (SystemSetting.VoiceApp == "VoiceVox")
         {
@@ -56,21 +60,21 @@ public class AutoRun_exe : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        OpenAI_API_Exit();
+        if (SystemSetting.InputMode != "script")
+        {
+            OpenAI_API_Exit();
+        }
         VoiceVox_Exit();
         COEIROINK_Exit();
     }
 
     public void OpenAI_API_Exit()
     {
-        if (!OpenAI_API.HasExited)
+        //OpenAI_API.Kill();だと孫プロセスが殺せないので名前で指定してkill
+        System.Diagnostics.Process[] ps = System.Diagnostics.Process.GetProcessesByName("OpenAI_API");
+        foreach (System.Diagnostics.Process p in ps)
         {
-            //OpenAI_API.Kill();だと孫プロセスが殺せないので名前で指定してkill
-            System.Diagnostics.Process[] ps = System.Diagnostics.Process.GetProcessesByName("OpenAI_API");
-            foreach (System.Diagnostics.Process p in ps)
-            {
-                p.Kill();
-            }
+            p.Kill();
         }
     }
 

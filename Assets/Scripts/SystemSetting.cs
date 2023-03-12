@@ -1,5 +1,4 @@
 using UnityEngine;
-using Image = UnityEngine.UI.Image;
 
 public class SystemSetting : MonoBehaviour
 {
@@ -7,6 +6,8 @@ public class SystemSetting : MonoBehaviour
     public string VRMpath;
 
     public string InputMode;
+    public string pythonPath;
+    public string scriptPath;
     public string AI_URL;
 
     public string VoiceApp;
@@ -31,6 +32,8 @@ public class SystemSetting : MonoBehaviour
     public string OutlineColor;
     public string Thickness_string;
     public float Thickness;
+    public string port_string;
+    public int port;
 
 
     public void Awake()
@@ -41,6 +44,8 @@ public class SystemSetting : MonoBehaviour
         ini.Open(inifile);
         VRMpath = ini.ReadValue("VRM", "VRMpath", "");
         InputMode = ini.ReadValue("AI_Setting", "InputMode", "");
+        pythonPath = ini.ReadValue("AI_Setting", "pythonPath", "");
+        scriptPath = ini.ReadValue("AI_Setting", "scriptPath", "");
         AI_URL = ini.ReadValue("AI_Setting", "AI_URL", "");
         VoiceApp = ini.ReadValue("AI_Voice", "VoiceApp", "");
         VoicePeak_exe = ini.ReadValue("AI_Voice", "VoicePeak_exe", "");
@@ -53,8 +58,6 @@ public class SystemSetting : MonoBehaviour
         COEIROINK_narrator_string = ini.ReadValue("AI_Voice", "COEIROINK_narrator", "");
         COEIROINK_narrator = int.Parse(COEIROINK_narrator_string);
 
-
-
         background = ini.ReadValue("Other", "BackGround", "");
         Responce_display = ini.ReadValue("Other", "Responce_display", "");
         Responce_frame = ini.ReadValue("Other", "Responce_frame", "");
@@ -64,6 +67,8 @@ public class SystemSetting : MonoBehaviour
         OutlineColor = ini.ReadValue("Other", "OutlineColor", "");
         Thickness_string = ini.ReadValue("Other", "Thickness", "");
         Thickness = float.Parse(Thickness_string);
+        port_string = ini.ReadValue("OpenAI_API", "port", "");
+        port = int.Parse(port_string);
         ini.Close();
     }
 }

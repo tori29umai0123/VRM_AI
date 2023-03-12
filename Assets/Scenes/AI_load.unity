@@ -1564,6 +1564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1559341517}
+  - component: {fileID: 1559341532}
   - component: {fileID: 1559341520}
   - component: {fileID: 1559341521}
   - component: {fileID: 1559341523}
@@ -1836,6 +1837,8 @@ MonoBehaviour:
   VoicePeak_narrator: 
   VoiceVox_exe: 
   VoiceVox_narrator: 0
+  COEIROINK_exe: 
+  COEIROINK_narrator: 0
   background: 
   backgroundColor: 
   backgroundImage: 
@@ -1847,6 +1850,8 @@ MonoBehaviour:
   OutlineColor: 
   Thickness_string: 
   Thickness: 0
+  port_string: 
+  port: 0
 --- !u!114 &1559341531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1861,7 +1866,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SystemSetting: {fileID: 1559341530}
   OpenAI_API_exe: 
+  COEIROINK_exe: 
   VoiceVox_exe: 
+--- !u!114 &1559341532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559341515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c54a6ca745727479ead29ac831c698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SystemSetting: {fileID: 1559341530}
+  UImanager: {fileID: 1559341523}
+  EditorRunTerminal: {fileID: 1559341524}
+  LOCA_LPORT: 0
+  scriptMode: 0
+  text: 
+  textList: []
 --- !u!1 &1568995473
 GameObject:
   m_ObjectHideFlags: 0
