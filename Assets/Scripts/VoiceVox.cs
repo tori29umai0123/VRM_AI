@@ -5,6 +5,7 @@ public class VoiceVox : MonoBehaviour
 {
     public string Message;
     public int narrator;
+    public float emote_time;
     public void Awake()
     {
         GameObject Game_system = GameObject.FindGameObjectWithTag("Game_system");
@@ -33,7 +34,7 @@ public class VoiceVox : MonoBehaviour
         if (client.AudioClip != null)
         {
             source.clip = client.AudioClip;
-            CallVoice.emote_time = source.clip.length;
+            emote_time = source.clip.length;
             source.Play();
             StartCoroutine("Talking_Off");
         }
@@ -41,7 +42,7 @@ public class VoiceVox : MonoBehaviour
 
     IEnumerator Talking_Off()
     {
-        yield return new WaitForSeconds(CallVoice.emote_time);
+        yield return new WaitForSeconds(emote_time);
         UImanager.talking = false;
     }
 }

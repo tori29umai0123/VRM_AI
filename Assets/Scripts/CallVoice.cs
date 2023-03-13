@@ -3,8 +3,6 @@ using UnityEngine;
 public class CallVoice : MonoBehaviour
 {
     public string VoiceApp;
-    public static float emote_time;
-
     public void Awake()
     {
         GameObject Game_system = GameObject.FindGameObjectWithTag("Game_system");
@@ -15,42 +13,23 @@ public class CallVoice : MonoBehaviour
     {
         if (VoiceApp == "VoiceVox")
         {
-            if (this.gameObject.GetComponent<VoiceVox>() == null)
-            {
-                VoiceVox VoiceVox = this.gameObject.AddComponent<VoiceVox>();
-                VoiceVox.VoiceVoxStart();
-            }
-            else
-            {
-                VoiceVox VoiceVox = this.gameObject.GetComponent<VoiceVox>();
-                VoiceVox.VoiceVoxStart(); 
-            }
+            VoiceVox VoiceVox = this.gameObject.GetComponent<VoiceVox>();
+            VoiceVox.VoiceVoxStart();
         }
         else if (VoiceApp == "VoicePeak")
         {
-            if (this.gameObject.GetComponent<VoicePeak>() == null)
-            {
-                VoicePeak VoicePeak = this.gameObject.AddComponent<VoicePeak>();
-                VoicePeak.VoicePeakStart();
-            }
-            else
-            {
-                VoicePeak VoicePeak = this.gameObject.GetComponent<VoicePeak>();
-                VoicePeak.VoicePeakStart();
-            }
+            VoicePeak VoicePeak = this.gameObject.GetComponent<VoicePeak>();
+            VoicePeak.VoicePeakStart();
         }
         if (VoiceApp == "COEIROINK")
         {
-            if (this.gameObject.GetComponent<VoiceVox>() == null)
-            {
-                COEIROINK COEIROINK = this.gameObject.AddComponent<COEIROINK>();
-                COEIROINK.COEIROINKStart();
-            }
-            else
-            {
-                COEIROINK COEIROINK = this.gameObject.GetComponent<COEIROINK>();
-                COEIROINK.COEIROINKStart();
-            }
+            COEIROINK COEIROINK = this.gameObject.GetComponent<COEIROINK>();
+            COEIROINK.COEIROINKStart();
+        }
+        if (VoiceApp == "AssistantSeika")
+        {
+            SeikaTalk SeikaTalk = this.gameObject.GetComponent<SeikaTalk>();
+            SeikaTalk.SeikaTalkStart();
         }
     }
 }

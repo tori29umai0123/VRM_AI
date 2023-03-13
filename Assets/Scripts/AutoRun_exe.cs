@@ -4,58 +4,78 @@ using UnityEngine;
 public class AutoRun_exe : MonoBehaviour
 {
     public SystemSetting SystemSetting;
-    public string OpenAI_API_exe;
-    public string COEIROINK_exe;
-    public string VoiceVox_exe;
     Process OpenAI_API;
     Process VoiceVox;
     Process COEIROINK;
+    Process Seika_Voice;
+    Process AssistantSeika;
+    Process Seikactl;
+
 
     void Start()
     {
-
         if (SystemSetting.InputMode != "script")
         {
-            var exefile = Get_ParentDirectory.GetParentDirectory(Application.dataPath, 1);
-            OpenAI_API_exe = exefile + "/OpenAI_API/OpenAI_API.exe";
             OpenAI_API_RUN();
         }
 
         if (SystemSetting.VoiceApp == "VoiceVox")
         {
-            VoiceVox_exe = SystemSetting.VoiceVox_exe;
             VoiceVox_RUN();
         }
         else if (SystemSetting.VoiceApp == "COEIROINK")
         {
-            COEIROINK_exe = SystemSetting.COEIROINK_exe;
             COEIROINK_RUN();
+        }
+        else if (SystemSetting.VoiceApp == "AssistantSeika")
+        {
+            AssistantSeika_RUN();
         }
     }
     public void OpenAI_API_RUN()
     {
+        var exefile = Get_ParentDirectory.GetParentDirectory(Application.dataPath, 1);
+        var OpenAI_API_exe = exefile + "/OpenAI_API/OpenAI_API.exe";
         OpenAI_API = new Process();
         OpenAI_API.StartInfo.FileName = OpenAI_API_exe;
         OpenAI_API.Start();
     }
     public void VoiceVox_RUN()
     {
+        var VoiceVox_exe = SystemSetting.VoiceVox_exe;
         VoiceVox = new Process();
         VoiceVox.StartInfo.FileName = VoiceVox_exe;
         VoiceVox.StartInfo.Arguments = " --host localhost";
 
-        //é¿çs
         VoiceVox.Start();
     }
 
-
     public void COEIROINK_RUN()
     {
+        var COEIROINK_exe = SystemSetting.COEIROINK_exe;
         COEIROINK = new Process();
         COEIROINK.StartInfo.FileName = COEIROINK_exe;
 
-        //é¿çs
         COEIROINK.Start();
+    }
+
+    public void AssistantSeika_RUN()
+    {
+        Seika_Voice = new Process();
+        Seika_Voice.StartInfo.FileName = SystemSetting.Seika_Voice_exe;
+        Seika_Voice.Start();
+        AssistantSeika = new Process();
+        AssistantSeika.StartInfo.FileName = SystemSetting.AssistantSeika_exe;
+        AssistantSeika.Start();
+        Invoke("Seikactl_RUN", 3);
+    }
+
+    public void Seikactl_RUN()
+    {
+        Seikactl = new Process();
+        Seikactl.StartInfo.FileName = SystemSetting.Seikactl_exe;
+        Seikactl.StartInfo.Arguments = " prodscan";
+        Seikactl.Start();
     }
 
     private void OnApplicationQuit()
@@ -66,6 +86,7 @@ public class AutoRun_exe : MonoBehaviour
         }
         VoiceVox_Exit();
         COEIROINK_Exit();
+        AssistantSeika_Exit();
     }
 
     public void OpenAI_API_Exit()
@@ -91,6 +112,40 @@ public class AutoRun_exe : MonoBehaviour
         if (COEIROINK != null)
         {
             COEIROINK.Kill();
+        }
+    }
+    public void AssistantSeika_Exit()
+    {
+        Seika_Voice.Kill();
+        System.Diagnostics.Process[] ps = System.Diagnostics.Process.GetProcessesByName("AssistantSeika");
+        foreach (System.Diagnostics.Process p in ps)
+        {
+            p.Kill();
+        }
+        System.Diagnostics.Process[] ps2 = System.Diagnostics.Process.GetProcessesByName("PetitGate32w");
+        foreach (System.Diagnostics.Process p in ps)
+        {
+            p.Kill();
+        }
+        System.Diagnostics.Process[] ps3 = System.Diagnostics.Process.GetProcessesByName("PetitGate64w");
+        foreach (System.Diagnostics.Process p in ps)
+        {
+            p.Kill();
+        }
+        System.Diagnostics.Process[] ps4 = System.Diagnostics.Process.GetProcessesByName("PetitGateHttpw");
+        foreach (System.Diagnostics.Process p in ps)
+        {
+            p.Kill();
+        }
+        System.Diagnostics.Process[] ps5 = System.Diagnostics.Process.GetProcessesByName("Seikactl");
+        foreach (System.Diagnostics.Process p in ps)
+        {
+            p.Kill();
+        }
+        System.Diagnostics.Process[] ps6 = System.Diagnostics.Process.GetProcessesByName("SeikaSay2");
+        foreach (System.Diagnostics.Process p in ps)
+        {
+            p.Kill();
         }
     }
 }

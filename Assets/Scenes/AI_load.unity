@@ -1569,7 +1569,6 @@ GameObject:
   - component: {fileID: 1559341521}
   - component: {fileID: 1559341523}
   - component: {fileID: 1559341524}
-  - component: {fileID: 1559341527}
   - component: {fileID: 1559341528}
   - component: {fileID: 1559341529}
   - component: {fileID: 1559341530}
@@ -1617,6 +1616,7 @@ MonoBehaviour:
   VRMpath: 
   animCtrl: {fileID: 0}
   anime_ctl: {fileID: 9100000, guid: 66f1a0d256b3d7743bd031940dafb035, type: 2}
+  EditorRunTerminal: {fileID: 1559341524}
   uLipSyncSetup: {fileID: 1559341521}
 --- !u!114 &1559341521
 MonoBehaviour:
@@ -1685,102 +1685,7 @@ MonoBehaviour:
   SystemSetting: {fileID: 1559341530}
   URL: 
   UImanager: {fileID: 1559341523}
---- !u!82 &1559341527
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1559341515}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -6160755267696822119, guid: 6a7bc21f82af01a46bd4e89e71255489, type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  CallVoice: {fileID: 0}
 --- !u!114 &1559341528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1830,6 +1735,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VRMpath: 
   InputMode: 
+  pythonPath: 
+  scriptPath: 
   AI_URL: 
   VoiceApp: 
   VoicePeak_exe: 
@@ -1839,6 +1746,11 @@ MonoBehaviour:
   VoiceVox_narrator: 0
   COEIROINK_exe: 
   COEIROINK_narrator: 0
+  Seika_Voice_exe: 
+  AssistantSeika_exe: 
+  Seikactl_exe: 
+  SeikaSay2_exe: 
+  AssistantSeika_narrator: 0
   background: 
   backgroundColor: 
   backgroundImage: 
@@ -1865,9 +1777,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SystemSetting: {fileID: 1559341530}
-  OpenAI_API_exe: 
-  COEIROINK_exe: 
-  VoiceVox_exe: 
 --- !u!114 &1559341532
 MonoBehaviour:
   m_ObjectHideFlags: 0

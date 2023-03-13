@@ -1,12 +1,13 @@
 using UnityEngine;
 using UniVRM10;
+using uLipSync;
 public class LoadModel : MonoBehaviour
 {
     public SystemSetting SystemSetting;
     public string VRMpath;
     public Animator animCtrl;
     public RuntimeAnimatorController anime_ctl;
-    public static CallVoice CallVoice;
+    public EditorRunTerminal EditorRunTerminal;
     public uLipSyncSetup uLipSyncSetup;
 
     public void Start()
@@ -38,9 +39,9 @@ public class LoadModel : MonoBehaviour
             //AudioSourceを付与
             go.AddComponent<AudioSource>();
 
-            //AudioSourceを付与
+            //CallVoiceを付与
             go.AddComponent<CallVoice>();
-            CallVoice = go.GetComponent<CallVoice>();
+            EditorRunTerminal.CallVoice = go.GetComponent<CallVoice>();
 
             //自動表情制御設定
             go.AddComponent<Expression_Ctrl>();
@@ -51,6 +52,23 @@ public class LoadModel : MonoBehaviour
             //MotionCtrlを付与
             go.AddComponent<MotionCtrl>();
 
+
+            if (SystemSetting.VoiceApp == "VoiceVox")
+            {
+                VoiceVox VoiceVox = go.AddComponent<VoiceVox>();
+            }
+            else if (SystemSetting.VoiceApp == "VoicePeak")
+            {
+                VoicePeak VoicePeak = go.AddComponent<VoicePeak>();
+            }
+            if (SystemSetting.VoiceApp == "COEIROINK")
+            {
+                COEIROINK COEIROINK = go.AddComponent<COEIROINK>();
+            }
+            if (SystemSetting.VoiceApp == "AssistantSeika")
+            {
+                SeikaTalk SeikaTalk = go.AddComponent<SeikaTalk>();
+            }
         }
     }
 }

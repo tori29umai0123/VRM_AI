@@ -10,6 +10,8 @@ public class EditorRunTerminal : MonoBehaviour
     public static string Emo;
     public static float Emo_Weight;
     public UImanager UImanager;
+    public CallVoice CallVoice;
+
 
     public void Start()
     {
@@ -52,7 +54,7 @@ public class EditorRunTerminal : MonoBehaviour
             Emo_Weight = 0;
             Message = responce;
         }
-        LoadModel.CallVoice.Speak();
+        CallVoice.Speak();
         UImanager.text_inputField.text = "";
         UImanager.voice_inputField.text = "";
         UImanager.Voice_responce.text = Message;

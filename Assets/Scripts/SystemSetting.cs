@@ -21,6 +21,14 @@ public class SystemSetting : MonoBehaviour
     string COEIROINK_narrator_string;
     public int COEIROINK_narrator;
 
+    public string Seika_Voice_exe;
+    public string AssistantSeika_exe;
+    public string Seikactl_exe;
+    public string SeikaSay2_exe;
+    string AssistantSeika_narrator_string;
+    public int AssistantSeika_narrator;
+    public string AudioDevice;
+
     public string background;
     public string backgroundColor;
     public string backgroundImage;
@@ -32,6 +40,7 @@ public class SystemSetting : MonoBehaviour
     public string OutlineColor;
     public string Thickness_string;
     public float Thickness;
+
     public string port_string;
     public int port;
 
@@ -57,6 +66,14 @@ public class SystemSetting : MonoBehaviour
         COEIROINK_exe = ini.ReadValue("AI_Voice", "COEIROINK_exe", "");
         COEIROINK_narrator_string = ini.ReadValue("AI_Voice", "COEIROINK_narrator", "");
         COEIROINK_narrator = int.Parse(COEIROINK_narrator_string);
+
+        Seika_Voice_exe = ini.ReadValue("AssistantSeika", "Seika_Voice_exe", "");
+        AssistantSeika_exe = ini.ReadValue("AssistantSeika", "AssistantSeika_exe", "");
+        Seikactl_exe = ini.ReadValue("AssistantSeika", "Seikactl_exe", "");
+        SeikaSay2_exe = ini.ReadValue("AssistantSeika", "SeikaSay2_exe", "");
+        AssistantSeika_narrator_string = ini.ReadValue("AssistantSeika", "AssistantSeika_narrator", "");
+        AssistantSeika_narrator = int.Parse(AssistantSeika_narrator_string);
+        AudioDevice = ini.ReadValue("AssistantSeika", "AudioDevice", "");
 
         background = ini.ReadValue("Other", "BackGround", "");
         Responce_display = ini.ReadValue("Other", "Responce_display", "");

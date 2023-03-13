@@ -12,6 +12,7 @@ public class VoicePeak : MonoBehaviour
     public string outpath;
     public string wavpath;
     public string narrator;
+    public float emote_time;
     public Process exProcess;
 
     public void Awake()
@@ -61,7 +62,7 @@ public class VoicePeak : MonoBehaviour
             }
             var outwav = DownloadHandlerAudioClip.GetContent(req);
             source.clip = outwav;
-            CallVoice.emote_time = source.clip.length;
+            emote_time = source.clip.length;
             source.Play();
             UImanager.talking = true;
             UImanager.thinking = false;
@@ -71,7 +72,7 @@ public class VoicePeak : MonoBehaviour
 
     IEnumerator Talking_Off()
     {
-        yield return new WaitForSeconds(CallVoice.emote_time);
+        yield return new WaitForSeconds(emote_time);
         UImanager.talking = false;
     }
 

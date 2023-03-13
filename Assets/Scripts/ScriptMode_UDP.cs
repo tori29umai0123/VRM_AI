@@ -66,7 +66,7 @@ public class ScriptMode_UDP : MonoBehaviour
             EditorRunTerminal.Emo_Weight = 0;
             EditorRunTerminal.Message = responce;
         }
-        LoadModel.CallVoice.Speak();
+        EditorRunTerminal.CallVoice.Speak();
         UImanager.Voice_responce.text = EditorRunTerminal.Message;
         yield break;
     }
@@ -96,6 +96,9 @@ public class ScriptMode_UDP : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        test_API.Kill();
+        if(scriptMode)
+        {
+            test_API.Kill();
+        }
     }
 }
