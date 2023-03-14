@@ -6,7 +6,7 @@ VRMファイルを読み込んでChatGPTのAPIとWhisperを連携させるソフ
 合成音声ソフトは現在『VoicePeak、VoiceVox、COEIROINK』に対応済み。
 AssistantSeikaにも仮対応しています。（https://note.com/tori29umai/n/n121642310fd4）
 
-PythonスクリプトとUnityのコードが書ければ自由に拡張できます。あくまで仮公開なので悪しからず。
+PythonスクリプトとUnityのコードが書ければ自由に拡張できます。
 
 # Usage
 https://github.com/tori29umai0123/VRM_AI/releases
