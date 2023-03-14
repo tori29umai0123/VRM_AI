@@ -45,3 +45,7 @@ https://note.com/tori29umai/n/n53e1db740e0b
 # sample_API.py
 Python製のスクリプトです。OpenAI_API.exeを使わずに独自スクリプトを使いたいとき用のサンプルです。
 AItuber配信等したい人向け。
+
+# 拡張スクリプト
+有志の方が作ってくださったYoutube APIを使用して配信中のリスナーコメントに対応させる拡張スクリプトです
+https://qiita.com/kamatari_san/items/ec89b53e408cbaff785a?utm_campaign=post_article&utm_medium=twitter&utm_source=twitter_share
