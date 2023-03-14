@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.Networking;
 using NekomimiDaimao;
 
+//音声をtextに変えるスクリプト
 public class VoicetoText : MonoBehaviour
 {
     public SystemSetting SystemSetting;

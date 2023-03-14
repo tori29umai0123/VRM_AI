@@ -8,6 +8,7 @@ using System.Threading;
 using System.Collections;
 using System.Diagnostics;
 
+//独自Pythonスクリプト入力に対応するスクリプト
 //https://jump1268.hatenablog.com/entry/2018/11/25/143459
 public class ScriptMode_UDP : MonoBehaviour
 {

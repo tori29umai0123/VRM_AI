@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//UIを点滅させるスクリプト
+//https://vend9520-lab.net/?p=382
+
 public class UIBlink : MonoBehaviour {
 
     //public

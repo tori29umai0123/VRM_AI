@@ -1,6 +1,8 @@
 using UnityEngine;
-using Image = UnityEngine.UI.Image;
+using UnityEngine.UI;
 using TMPro;
+
+//UIを管理するスクリプト
 
 public class UImanager : MonoBehaviour
 {

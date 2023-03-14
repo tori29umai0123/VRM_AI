@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//ボイスアプリに連携するスクリプト
 public class CallVoice : MonoBehaviour
 {
     public string VoiceApp;

@@ -5,10 +5,8 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
-////https://qiita.com/Haruyama_Dev/items/5b8ac0260cdfeff47121
-/// <summary>
-/// COEIROINKのREST-APIクライアント
-/// </summary>
+//https://qiita.com/Haruyama_Dev/items/5b8ac0260cdfeff47121
+//COEIROINKのREST-APIクライアント
 public class COEIROINKApiClient
 {
     /// <summary> 基本 URL </summary>

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+//VoiceVoxで発声するスクリプト
 public class VoiceVox : MonoBehaviour
 {
     public string Message;

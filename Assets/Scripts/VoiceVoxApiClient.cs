@@ -5,10 +5,9 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
-////https://qiita.com/Haruyama_Dev/items/5b8ac0260cdfeff47121
-/// <summary>
-/// VOICEVOXのREST-APIクライアント
-/// </summary>
+//https://qiita.com/Haruyama_Dev/items/5b8ac0260cdfeff47121
+//VoiceVoxのREST-APIクライアント
+
 public class VoiceVoxApiClient
 {
     /// <summary> 基本 URL </summary>

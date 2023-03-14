@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 
+//OpenAI_APIと連携するスクリプト
+
 public class EditorRunTerminal : MonoBehaviour
 {
     public SystemSetting SystemSetting;

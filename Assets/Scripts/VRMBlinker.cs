@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UniVRM10;
 
-
+//VRMを瞬きさせるスクリプト
 
 public class VRM10Blinker : MonoBehaviour
 {

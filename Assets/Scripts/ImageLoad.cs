@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.IO;
 
-
+//外部の画像を読み込むスクリプト
+//http://anndoroido.blogspot.com/2016/03/unity.html
 public class ImageLoad : MonoBehaviour
 {
     public static byte[] LoadBytes(string path)

@@ -2,9 +2,8 @@ using System.Diagnostics;
 using UnityEngine;
 using System.Threading.Tasks;
 using System.Threading;
-using System.Collections;
 
-
+//SeikaTalkで発声するスクリプト
 public class SeikaTalk : MonoBehaviour
 {
     public string Message;
@@ -21,8 +20,6 @@ public class SeikaTalk : MonoBehaviour
         exepath = SystemSetting.SeikaSay2_exe;
         narrator = "\"" + SystemSetting.AssistantSeika_narrator + "\"";
         AudioDevice = SystemSetting.AudioDevice;
-        //source = this.GetComponent<AudioSource>();
-        //source.clip = Microphone.Start(AudioDevice, true, 10, 44100);
     }
     public void SeikaTalkStart()
     {

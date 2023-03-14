@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//iniファイルを読み取るスクリプト。Advanced INI Parser前提
 public class SystemSetting : MonoBehaviour
 {
     string inifile;

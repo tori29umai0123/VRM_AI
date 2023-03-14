@@ -1,6 +1,8 @@
 using System.Diagnostics;
 using UnityEngine;
 
+//アプリ起動時に必要な連携をアプリを起動し、終了時に閉じるスクリプト
+
 public class AutoRun_exe : MonoBehaviour
 {
     public SystemSetting SystemSetting;
@@ -10,7 +12,6 @@ public class AutoRun_exe : MonoBehaviour
     Process Seika_Voice;
     Process AssistantSeika;
     Process Seikactl;
-
 
     void Start()
     {

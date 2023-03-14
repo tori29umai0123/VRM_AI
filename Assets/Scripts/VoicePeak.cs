@@ -5,6 +5,7 @@ using System.Threading;
 using UnityEngine.Networking;
 using System.Collections;
 
+//VoicePeakで発声するスクリプト
 public class VoicePeak : MonoBehaviour
 {
     public string Message;

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//カラーコード文字列をColorクラスに変換するスクリプト
 //https://baba-s.hatenablog.com/entry/2015/12/31/100000
 public static class MyColorUtility
 {

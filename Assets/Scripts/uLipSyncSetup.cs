@@ -1,6 +1,7 @@
 using UnityEngine;
-using System.Collections.Generic;
 
+
+//VRMにuLipSyncを自動でセットアップするスクリプト
 public class uLipSyncSetup : MonoBehaviour
 {
     [System.Serializable]

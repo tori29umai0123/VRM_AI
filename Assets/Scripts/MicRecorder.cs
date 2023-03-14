@@ -4,8 +4,9 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 
-///  https://gist.github.com/nekomimi-daimao/a14301d7008d0a1c7e55977d6d9e2cc1
-///  https://note.com/hikohiro/n/n2b756a0dd2b7
+//音声を発してから黙るまでの任意の時間、録音するスクリプト
+//https://gist.github.com/nekomimi-daimao/a14301d7008d0a1c7e55977d6d9e2cc1
+//https://note.com/hikohiro/n/n2b756a0dd2b7
 
 namespace NekomimiDaimao
 {

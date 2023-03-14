@@ -1,6 +1,7 @@
 using UnityEngine;
 using UniVRM10;
-using uLipSync;
+
+//VRMモデルを読み込み、セットアップするスクリプト
 public class LoadModel : MonoBehaviour
 {
     public SystemSetting SystemSetting;

@@ -1,9 +1,8 @@
 using UnityEngine;
 
-/// <summary>
-/// GameビューにてSceneビューのようなカメラの動きをマウス操作によって実現する
-/// </summary>
-[RequireComponent(typeof(Camera))]
+//GameビューにてSceneビューのようなカメラの動きをマウス操作によって実現する
+//https://gist.github.com/EsProgram/0fd35669c28fd13594c8
+
 public class SceneViewCamera : MonoBehaviour
 {
   [SerializeField, Range(0.1f, 10f)]

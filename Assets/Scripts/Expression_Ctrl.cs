@@ -3,6 +3,7 @@ using UnityEngine;
 using UniVRM10;
 using System.Linq;
 
+//VRMの表情を制御するスクリプト
 public class Expression_Ctrl : MonoBehaviour
 {
     //このスクリプトをVRMBlinker.csやuLipSync等のスクリプトを共存させるには"\Assets\VRM10\Runtime\IO\Vrm10Importer.cs"のExpression.OverrideBlink（以下略）を全部書き換える必要がある。

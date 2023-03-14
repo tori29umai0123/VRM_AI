@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-
+//モーション制御スクリプト。未実装（モーション収録できていないので）
 public class MotionCtrl : MonoBehaviour
 {
     public int motion;

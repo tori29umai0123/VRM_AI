@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+//COEIROINKで音声を出力するスクリプト
 public class COEIROINK : MonoBehaviour
 {
     public string Message;
