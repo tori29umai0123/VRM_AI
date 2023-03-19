@@ -3,9 +3,8 @@ using UnityEngine;
 //iniファイルを読み取るスクリプト。Advanced INI Parser前提
 public class SystemSetting : MonoBehaviour
 {
-    string inifile;
     public string VRMpath;
-
+    public GameObject Camera;
     public string InputMode;
     public string pythonPath;
     public string scriptPath;
@@ -49,7 +48,7 @@ public class SystemSetting : MonoBehaviour
     public void Awake()
     {
         var exefile = Get_ParentDirectory.GetParentDirectory(Application.dataPath, 1);
-        inifile = exefile + "/config.ini";
+        var inifile = exefile + "/config.ini";
         INIParser ini = new INIParser();
         ini.Open(inifile);
         VRMpath = ini.ReadValue("VRM", "VRMpath", "");
@@ -89,4 +88,30 @@ public class SystemSetting : MonoBehaviour
         port = int.Parse(port_string);
         ini.Close();
     }
+
+    private void OnApplicationQuit()
+    {
+        //iniファイルにカメラ位置書き込み
+        Transform myTransform = Camera.transform;
+        Vector3 worldPos = myTransform.position;
+        float pos_x = worldPos.x;
+        float pos_y = worldPos.y;
+        float pos_z = worldPos.z;
+        Vector3 worldAngle = myTransform.eulerAngles;
+        float angle_x = worldAngle.x;
+        float angle_y = worldAngle.y;
+        float angle_z = worldAngle.z;
+        var exefile = Get_ParentDirectory.GetParentDirectory(Application.dataPath, 1);
+        var inifile = exefile + "/config.ini";
+        INIParser ini = new INIParser();
+        ini.Open(inifile);
+        ini.WriteValue("Camera_setting", "pos_x", pos_x);
+        ini.WriteValue("Camera_setting", "pos_y", pos_y);
+        ini.WriteValue("Camera_setting", "pos_z", pos_z);
+        ini.WriteValue("Camera_setting", "angle_x", angle_x);
+        ini.WriteValue("Camera_setting", "angle_y", angle_y);
+        ini.WriteValue("Camera_setting", "angle_z", angle_z);
+        ini.Close();
+    }
+
 }

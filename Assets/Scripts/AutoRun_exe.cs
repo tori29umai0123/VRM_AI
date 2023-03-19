@@ -1,8 +1,9 @@
 using System.Diagnostics;
 using UnityEngine;
+using System.Threading.Tasks;
+using System.Threading;
 
 //アプリ起動時に必要な連携をアプリを起動し、終了時に閉じるスクリプト
-
 public class AutoRun_exe : MonoBehaviour
 {
     public SystemSetting SystemSetting;
@@ -81,72 +82,67 @@ public class AutoRun_exe : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        if (SystemSetting.InputMode != "script")
-        {
-            OpenAI_API_Exit();
-        }
-        VoiceVox_Exit();
-        COEIROINK_Exit();
-        AssistantSeika_Exit();
+        var _ = AppExit();
     }
 
-    public void OpenAI_API_Exit()
+    private async Task AppExit()
     {
-        //OpenAI_API.Kill();だと孫プロセスが殺せないので名前で指定してkill
-        System.Diagnostics.Process[] ps = System.Diagnostics.Process.GetProcessesByName("OpenAI_API");
-        foreach (System.Diagnostics.Process p in ps)
+        await Task.Run(() =>
         {
-            p.Kill();
-        }
-    }
+            if (VoiceVox != null)
+            {
+                VoiceVox.Kill();
+            }
 
-    public void VoiceVox_Exit()
-    {
-        if (VoiceVox != null)
-        {
-            VoiceVox.Kill();
-        }
-    }
+            if (COEIROINK != null)
+            {
+                COEIROINK.CloseMainWindow();
+            }
 
-    public void COEIROINK_Exit()
-    {
-        if (COEIROINK != null)
-        {
-            COEIROINK.Kill();
-        }
-    }
-    public void AssistantSeika_Exit()
-    {
-        Seika_Voice.Kill();
-        System.Diagnostics.Process[] ps = System.Diagnostics.Process.GetProcessesByName("AssistantSeika");
-        foreach (System.Diagnostics.Process p in ps)
-        {
-            p.Kill();
-        }
-        System.Diagnostics.Process[] ps2 = System.Diagnostics.Process.GetProcessesByName("PetitGate32w");
-        foreach (System.Diagnostics.Process p in ps)
-        {
-            p.Kill();
-        }
-        System.Diagnostics.Process[] ps3 = System.Diagnostics.Process.GetProcessesByName("PetitGate64w");
-        foreach (System.Diagnostics.Process p in ps)
-        {
-            p.Kill();
-        }
-        System.Diagnostics.Process[] ps4 = System.Diagnostics.Process.GetProcessesByName("PetitGateHttpw");
-        foreach (System.Diagnostics.Process p in ps)
-        {
-            p.Kill();
-        }
-        System.Diagnostics.Process[] ps5 = System.Diagnostics.Process.GetProcessesByName("Seikactl");
-        foreach (System.Diagnostics.Process p in ps)
-        {
-            p.Kill();
-        }
-        System.Diagnostics.Process[] ps6 = System.Diagnostics.Process.GetProcessesByName("SeikaSay2");
-        foreach (System.Diagnostics.Process p in ps)
-        {
-            p.Kill();
-        }
+            if (Seika_Voice != null)
+            {
+                Seika_Voice.CloseMainWindow();
+            }
+
+            if (AssistantSeika != null)
+            {
+                AssistantSeika.CloseMainWindow();
+            }
+
+            //名前で指定してkill
+            System.Diagnostics.Process[] ps1 = System.Diagnostics.Process.GetProcessesByName("OpenAI_API");
+            foreach (System.Diagnostics.Process p in ps1)
+            {
+                p.Kill();
+            }
+
+            System.Diagnostics.Process[] ps2 = System.Diagnostics.Process.GetProcessesByName("PetitGate32w");
+            foreach (System.Diagnostics.Process p in ps2)
+            {
+                p.Kill();
+            }
+            System.Diagnostics.Process[] ps3 = System.Diagnostics.Process.GetProcessesByName("PetitGate64w");
+            foreach (System.Diagnostics.Process p in ps3)
+            {
+                p.Kill();
+            }
+            System.Diagnostics.Process[] ps4 = System.Diagnostics.Process.GetProcessesByName("PetitGateHttpw");
+            foreach (System.Diagnostics.Process p in ps4)
+            {
+                p.Kill();
+            }
+            System.Diagnostics.Process[] ps5 = System.Diagnostics.Process.GetProcessesByName("Seikactl");
+            foreach (System.Diagnostics.Process p in ps5)
+            {
+                p.CloseMainWindow();
+            }
+            System.Diagnostics.Process[] ps6 = System.Diagnostics.Process.GetProcessesByName("SeikaSay2");
+            foreach (System.Diagnostics.Process p in ps6)
+            {
+                p.Kill();
+            }
+            Thread.Sleep(3000);
+        });
+        UnityEngine.Debug.Log("終了");
     }
 }

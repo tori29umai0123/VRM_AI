@@ -1734,6 +1734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VRMpath: 
+  Camera: {fileID: 1915289383}
   InputMode: 
   pythonPath: 
   scriptPath: 
@@ -1751,6 +1752,7 @@ MonoBehaviour:
   Seikactl_exe: 
   SeikaSay2_exe: 
   AssistantSeika_narrator: 0
+  AudioDevice: 
   background: 
   backgroundColor: 
   backgroundImage: 
