@@ -22,11 +22,10 @@ public class SystemSetting : MonoBehaviour
     public int COEIROINK_narrator;
 
     public string Seika_Voice_exe;
-    public string AssistantSeika_exe;
+    public string AssistantSeika_path;
     public string Seikactl_exe;
     public string SeikaSay2_exe;
-    string AssistantSeika_narrator_string;
-    public int AssistantSeika_narrator;
+    public string AssistantSeika_narrator;
     public string AudioDevice;
 
     public string background;
@@ -68,11 +67,10 @@ public class SystemSetting : MonoBehaviour
         COEIROINK_narrator = int.Parse(COEIROINK_narrator_string);
 
         Seika_Voice_exe = ini.ReadValue("AssistantSeika", "Seika_Voice_exe", "");
-        AssistantSeika_exe = ini.ReadValue("AssistantSeika", "AssistantSeika_exe", "");
+        AssistantSeika_path = ini.ReadValue("AssistantSeika", "AssistantSeika_path", "");
         Seikactl_exe = ini.ReadValue("AssistantSeika", "Seikactl_exe", "");
         SeikaSay2_exe = ini.ReadValue("AssistantSeika", "SeikaSay2_exe", "");
-        AssistantSeika_narrator_string = ini.ReadValue("AssistantSeika", "AssistantSeika_narrator", "");
-        AssistantSeika_narrator = int.Parse(AssistantSeika_narrator_string);
+        AssistantSeika_narrator = ini.ReadValue("AssistantSeika", "AssistantSeika_narrator", "");
         AudioDevice = ini.ReadValue("AssistantSeika", "AudioDevice", "");
 
         background = ini.ReadValue("Other", "BackGround", "");

@@ -66,18 +66,55 @@ public class AutoRun_exe : MonoBehaviour
         Seika_Voice = new Process();
         Seika_Voice.StartInfo.FileName = SystemSetting.Seika_Voice_exe;
         Seika_Voice.Start();
-        AssistantSeika = new Process();
-        AssistantSeika.StartInfo.FileName = SystemSetting.AssistantSeika_exe;
-        AssistantSeika.Start();
-        Invoke("Seikactl_RUN", 3);
+
+        //
+        // 本来なら音声合成製品の起動確認処理がここに入る。
+        // 今回は3秒間の待ちを入れる事にする
+        Thread.Sleep(1000 * 3);
+
+        // AssistantSeikaの起動と製品スキャン実行
+        Seikactl_BOOTSEQUENCE();
     }
 
-    public void Seikactl_RUN()
+    private void Seikactl_BOOTSEQUENCE()
     {
         Seikactl = new Process();
         Seikactl.StartInfo.FileName = SystemSetting.Seikactl_exe;
-        Seikactl.StartInfo.Arguments = " prodscan";
+        Seikactl.StartInfo.Arguments = @"boot """ + SystemSetting.AssistantSeika_path + @"""";
         Seikactl.Start();
+        Seikactl.WaitForExit();
+
+        if (Seikactl.ExitCode == 0)
+        {
+            Seikactl = new Process();
+            Seikactl.StartInfo.FileName = SystemSetting.Seikactl_exe;
+            Seikactl.StartInfo.Arguments = "waitboot 300"; // 最大300秒(5分)待ち
+            Seikactl.Start();
+            Seikactl.WaitForExit();
+
+            if (Seikactl.ExitCode == 0)
+            {
+                Seikactl = new Process();
+                Seikactl.StartInfo.FileName = SystemSetting.Seikactl_exe;
+                Seikactl.StartInfo.Arguments = "prodscan";
+                Seikactl.Start();
+                Seikactl.WaitForExit();
+
+                if (Seikactl.ExitCode != 0)
+                {
+                    // AssistantSeikaの製品スキャンに失敗したのでエラーの処理がここに入る
+                }
+            }
+            else
+            {
+                // AssistantSeikaと通信ができないのでエラーの処理がここに入る
+            }
+        }
+        else
+        {
+            // AssistantSeikaの起動に失敗したのでエラーの処理がここに入る
+        }
+
     }
 
     private void OnApplicationQuit()
@@ -89,6 +126,13 @@ public class AutoRun_exe : MonoBehaviour
     {
         await Task.Run(() =>
         {
+            //名前で指定してkill
+            System.Diagnostics.Process[] ps = System.Diagnostics.Process.GetProcessesByName("OpenAI_API");
+            foreach (System.Diagnostics.Process p in ps)
+            {
+                p.Kill();
+            }
+
             if (VoiceVox != null)
             {
                 VoiceVox.Kill();
@@ -99,49 +143,21 @@ public class AutoRun_exe : MonoBehaviour
                 COEIROINK.CloseMainWindow();
             }
 
-            if (Seika_Voice != null)
+            if (SystemSetting.VoiceApp == "AssistantSeika")
             {
                 Seika_Voice.CloseMainWindow();
+                Seikactl = new Process();
+                Seikactl.StartInfo.FileName = SystemSetting.Seikactl_exe;
+                Seikactl.StartInfo.Arguments = @"shutdown";
+                Seikactl.Start();
+                Seikactl.WaitForExit();
+
+                if (Seikactl.ExitCode != 0)
+                {
+                    // AssistantSeikaの停止処理に失敗してもやれることはない……（手動で止めろのメッセージを出すぐらい？）
+                }
             }
 
-            if (AssistantSeika != null)
-            {
-                AssistantSeika.CloseMainWindow();
-            }
-
-            //名前で指定してkill
-            System.Diagnostics.Process[] ps1 = System.Diagnostics.Process.GetProcessesByName("OpenAI_API");
-            foreach (System.Diagnostics.Process p in ps1)
-            {
-                p.Kill();
-            }
-
-            System.Diagnostics.Process[] ps2 = System.Diagnostics.Process.GetProcessesByName("PetitGate32w");
-            foreach (System.Diagnostics.Process p in ps2)
-            {
-                p.Kill();
-            }
-            System.Diagnostics.Process[] ps3 = System.Diagnostics.Process.GetProcessesByName("PetitGate64w");
-            foreach (System.Diagnostics.Process p in ps3)
-            {
-                p.Kill();
-            }
-            System.Diagnostics.Process[] ps4 = System.Diagnostics.Process.GetProcessesByName("PetitGateHttpw");
-            foreach (System.Diagnostics.Process p in ps4)
-            {
-                p.Kill();
-            }
-            System.Diagnostics.Process[] ps5 = System.Diagnostics.Process.GetProcessesByName("Seikactl");
-            foreach (System.Diagnostics.Process p in ps5)
-            {
-                p.CloseMainWindow();
-            }
-            System.Diagnostics.Process[] ps6 = System.Diagnostics.Process.GetProcessesByName("SeikaSay2");
-            foreach (System.Diagnostics.Process p in ps6)
-            {
-                p.Kill();
-            }
-            Thread.Sleep(3000);
         });
         UnityEngine.Debug.Log("終了");
     }
