@@ -1747,6 +1747,7 @@ MonoBehaviour:
   COEIROINK_exe: 
   COEIROINK_narrator: 0
   Seika_Voice_exe: 
+  AssistantSeika_path: 
   AssistantSeika_exe: 
   Seikactl_exe: 
   SeikaSay2_exe: 

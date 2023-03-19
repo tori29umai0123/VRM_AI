@@ -23,6 +23,7 @@ public class SystemSetting : MonoBehaviour
     public int COEIROINK_narrator;
 
     public string Seika_Voice_exe;
+    public string AssistantSeika_path;
     public string AssistantSeika_exe;
     public string Seikactl_exe;
     public string SeikaSay2_exe;
@@ -69,6 +70,7 @@ public class SystemSetting : MonoBehaviour
         COEIROINK_narrator = int.Parse(COEIROINK_narrator_string);
 
         Seika_Voice_exe = ini.ReadValue("AssistantSeika", "Seika_Voice_exe", "");
+        AssistantSeika_path = ini.ReadValue("AssistantSeika", "AssistantSeika_path", "");
         AssistantSeika_exe = ini.ReadValue("AssistantSeika", "AssistantSeika_exe", "");
         Seikactl_exe = ini.ReadValue("AssistantSeika", "Seikactl_exe", "");
         SeikaSay2_exe = ini.ReadValue("AssistantSeika", "SeikaSay2_exe", "");
