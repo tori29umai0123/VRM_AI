@@ -14,6 +14,8 @@ public class AutoRun_exe : MonoBehaviour
     Process AssistantSeika;
     Process Seikactl;
 
+    bool IsAssistantSeikaAlreadBoot = false;
+
     void Start()
     {
         if (SystemSetting.InputMode != "script")
@@ -32,6 +34,10 @@ public class AutoRun_exe : MonoBehaviour
         else if (SystemSetting.VoiceApp == "AssistantSeika")
         {
             AssistantSeika_RUN();
+        }
+        else if (SystemSetting.VoiceApp == "Voxsay")
+        {
+            VOXSAY_RUN();
         }
     }
     public void OpenAI_API_RUN()
@@ -63,11 +69,11 @@ public class AutoRun_exe : MonoBehaviour
 
     public void AssistantSeika_RUN()
     {
+        // VOICEROID, VOICEROID2 実行
         Seika_Voice = new Process();
         Seika_Voice.StartInfo.FileName = SystemSetting.Seika_Voice_exe;
         Seika_Voice.Start();
 
-        //
         // 本来なら音声合成製品の起動確認処理がここに入る。
         // 今回は3秒間の待ちを入れる事にする
         Thread.Sleep(1000 * 3);
@@ -78,6 +84,21 @@ public class AutoRun_exe : MonoBehaviour
 
     private void Seikactl_BOOTSEQUENCE()
     {
+        // すでAssistantSeikaが起動していたら何もしない
+        Seikactl = new Process();
+        Seikactl.StartInfo.FileName = SystemSetting.Seikactl_exe;
+        Seikactl.StartInfo.Arguments = "waitboot 10"; // 最大10秒待ち
+        Seikactl.Start();
+        Seikactl.WaitForExit();
+
+        if (Seikactl.ExitCode == 0)
+        {
+            IsAssistantSeikaAlreadBoot = true;
+            return;
+        }
+
+        // 起動していないのでAssistantSeikaを起動する
+
         Seikactl = new Process();
         Seikactl.StartInfo.FileName = SystemSetting.Seikactl_exe;
         Seikactl.StartInfo.Arguments = @"boot """ + SystemSetting.AssistantSeika_path + @"""";
@@ -117,6 +138,12 @@ public class AutoRun_exe : MonoBehaviour
 
     }
 
+    // voxsay v0.0.9以降対応
+    public void VOXSAY_RUN()
+    {
+        // エントリだけ用意;
+    }
+
     private void OnApplicationQuit()
     {
         var _ = AppExit();
@@ -145,16 +172,21 @@ public class AutoRun_exe : MonoBehaviour
 
             if (SystemSetting.VoiceApp == "AssistantSeika")
             {
-                Seika_Voice.CloseMainWindow();
-                Seikactl = new Process();
-                Seikactl.StartInfo.FileName = SystemSetting.Seikactl_exe;
-                Seikactl.StartInfo.Arguments = @"shutdown";
-                Seikactl.Start();
-                Seikactl.WaitForExit();
-
-                if (Seikactl.ExitCode != 0)
+                // 自分で起動していたらAssistantSeikaを停止する
+                // ※他アプリで起動していた場合、勝手に落とすのはマズいよね
+                if(!IsAssistantSeikaAlreadBoot)
                 {
-                    // AssistantSeikaの停止処理に失敗してもやれることはない……（手動で止めろのメッセージを出すぐらい？）
+                    Seika_Voice.CloseMainWindow();
+                    Seikactl = new Process();
+                    Seikactl.StartInfo.FileName = SystemSetting.Seikactl_exe;
+                    Seikactl.StartInfo.Arguments = @"shutdown";
+                    Seikactl.Start();
+                    Seikactl.WaitForExit();
+
+                    if (Seikactl.ExitCode != 0)
+                    {
+                        // AssistantSeikaの停止処理に失敗してもやれることはない……（手動で止めろのメッセージを出すぐらい？）
+                    }
                 }
             }
 

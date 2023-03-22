@@ -28,6 +28,11 @@ public class SystemSetting : MonoBehaviour
     public string AssistantSeika_narrator;
     public string AudioDevice;
 
+    public string Voxsay_path;
+    public string Voxsay_exe;
+    public string Voxsay_product;
+    public int Voxsay_narrator;
+
     public string background;
     public string backgroundColor;
     public string backgroundImage;
@@ -72,6 +77,11 @@ public class SystemSetting : MonoBehaviour
         SeikaSay2_exe = ini.ReadValue("AssistantSeika", "SeikaSay2_exe", "");
         AssistantSeika_narrator = ini.ReadValue("AssistantSeika", "AssistantSeika_narrator", "");
         AudioDevice = ini.ReadValue("AssistantSeika", "AudioDevice", "");
+
+        Voxsay_exe = ini.ReadValue("Voxsay", "Voxsay_exe", "voxsay.exe");
+        Voxsay_path = ini.ReadValue("Voxsay", "Voxsay_path", "");
+        Voxsay_product = ini.ReadValue("Voxsay", "Voxsay_product", "coeiroink");
+        Voxsay_narrator = ini.ReadValue("Voxsay", "Voxsay_narrator", "0");
 
         background = ini.ReadValue("Other", "BackGround", "");
         Responce_display = ini.ReadValue("Other", "Responce_display", "");
