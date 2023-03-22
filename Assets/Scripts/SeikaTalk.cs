@@ -54,6 +54,7 @@ public class SeikaTalk : MonoBehaviour
             SeikaSay2.WaitForExit(); // 非同期ではないので発声終了までSeikaSay2は終了しない
 
             // ↑でWaitForExitしてるのに何故かこの処理を入れないと音声が途切れる。なんで？
+            // ↑恐らく仮想デバイスの再生タイムラグのせい。
             var emote_time = EditorRunTerminal.Message.Length * 50;
             Thread.Sleep(emote_time);
         });
